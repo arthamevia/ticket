@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-Use App\Models\Movies;
-Use App\Models\Category;
+use App\Models\Category;
+use App\Models\Movies;
 
 class Movies extends Model
 {
     use HasFactory;
-    public $fillable = ['nama', 'decs', 'title_img', 'img', 'category_id', 'directory', 'rilis', 'duration', 'rate', 'riviews'];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->hasMany(Category::class);
     }
 
     public function title_img()
@@ -25,7 +24,7 @@ class Movies extends Model
             return asset('images/no_image.jpg');
         }
     }
-    // mengahupus image(foto) di storage(penyimpanan) public
+    
     public function deleteTitleImg()
     {
         if ($this->foto && file_exists(public_path('images/movies/' . $this->foto))) {
@@ -40,7 +39,7 @@ class Movies extends Model
             return asset('images/no_image.jpg');
         }
     }
-    // mengahupus image(foto2) di storage(penyimpanan) public
+    
     public function deleteImg()
     {
         if ($this->foto2 && file_exists(public_path('images/movies/' . $this->foto2))) {

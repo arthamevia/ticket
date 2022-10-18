@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Movies;
 use App\Models\Category;
+use App\Models\Movies;
 
 class CreateMoviesTable extends Migration
 {
@@ -21,7 +21,8 @@ class CreateMoviesTable extends Migration
             $table->string('decs');
             $table->string('title_img');
             $table->string('img');
-            $table->unsignedBigInteger('category_id');
+            $table->UnsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('directory');
             $table->string('rilis');
             $table->time('duration');
@@ -29,7 +30,7 @@ class CreateMoviesTable extends Migration
             $table->integer('riviews');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+                    
         });
     }
 

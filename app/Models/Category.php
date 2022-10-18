@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
-Use App\Models\Movies;
+use App\Models\Movies;
 
 class Category extends Model
 {
@@ -13,6 +13,9 @@ class Category extends Model
 
     public function movies()
     {
-        return $this->hasMany(movies::class);
+        return $this->belongsTo(movies::class);
     }
+    
 }
+
+
