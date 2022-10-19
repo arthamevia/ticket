@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Movies
+                        Lihat Data Movies
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
@@ -19,18 +19,18 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Title movies</label>
-                            @if (isset($movies) && $movies->foto)
+                            @if (isset($movies) && $movies->title_img)
                                 <p>
-                                    <img src="{{ asset('images/movies/' . $movies->foto) }}" class="img-rounded img-responsive"
+                                    <img src="{{ asset('images/movies/' . $movies->title_img) }}" class="img-rounded img-responsive"
                                         style="width: 75px; height:75px;" alt="">
                                 </p>
                             @endif
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Image movies</label>
-                            @if (isset($movies) && $movies->foto2)
+                            @if (isset($movies) && $movies->img)
                                 <p>
-                                    <img src="{{ asset('images/movies/' . $movies->foto2) }}" class="img-rounded img-responsive"
+                                    <img src="{{ asset('images/movies/' . $movies->img) }}" class="img-rounded img-responsive"
                                         style="width: 75px; height:75px;" alt="">
                                 </p>
                             @endif

@@ -7,7 +7,7 @@
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Movies
+                       Buat Data Movies
                     </div>
                     <div class="card-body">
                         <form action="{{ route('movies.store') }}" method="post" enctype="multipart/form-data">
@@ -119,6 +119,7 @@
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>
+                                    <a href="{{ route('movies.index') }}" class="btn btn-primary">Kembali</a>
                                 </div>
                             </div>
                         </form>

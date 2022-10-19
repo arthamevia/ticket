@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Tiket;
-use App\Models\kursi;
+use App\Models\Kursi;
+use App\Models\Movies;
 
 class CreateTiketsTable extends Migration
 {
@@ -17,7 +18,7 @@ class CreateTiketsTable extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode');
+            $table->string('kode');
             $table->integer('stok');
             $table->string('harga');
             $table->UnsignedBigInteger('nk');

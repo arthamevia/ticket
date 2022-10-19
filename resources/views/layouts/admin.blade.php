@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tugas</title>
+    <title>T-Movies</title>
 
     <!--  Topscript -->
     @include('components.topscript')
@@ -35,11 +35,11 @@
                             {{-- <h1 class="m-0">{{ $judul }}</h1> --}}
                         </div><!-- /.col -->
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            <!-- <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{ url('/home') }}"
                                         class="text-decoration-none">Home</a></li>
                                 {{-- <li class="breadcrumb-item active">{{ $judul }}</li> --}}
-                            </ol>
+                            </ol> -->
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tiket;
-use App\Models\kursi;
+use App\Models\Kursi;
+use App\Models\Movies;
 
 class Tiket extends Model
 {

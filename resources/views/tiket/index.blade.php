@@ -37,7 +37,7 @@
                                             <td>{{ $data->stok }}</td>
                                             <td>{{ $data->harga }}</td>
                                             <td>{{ $data->nk }}</td>
-                                            <td>{{ $data->judul }}</td>
+                                            <td>{{ $data->nama }}</td>
                                             <td>
                                                 <form action="{{ route('tiket.destroy', $data->id) }}" method="post">
                                                     @csrf
