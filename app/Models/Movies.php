@@ -13,13 +13,17 @@ class Movies extends Model
 
     public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
+    }
+    public function tiket()
+    {
+        return $this->belongsTo(Tiket::class);
     }
 
-    public function title_img()
+    public function title_img_show()
     {
-        if ($this->foto && file_exists(public_path('images/movies/' . $this->foto))) {
-            return asset('images/movies/' . $this->foto);
+        if ($this->title_img && file_exists(public_path('images/movies/' . $this->title_img))) {
+            return asset('images/movies/' . $this->title_img);
         } else {
             return asset('images/no_image.jpg');
         }
@@ -27,14 +31,14 @@ class Movies extends Model
     
     public function deleteTitleImg()
     {
-        if ($this->foto && file_exists(public_path('images/movies/' . $this->foto))) {
-            return unlink(public_path('images/movies/' . $this->foto));
+        if ($this->title_img && file_exists(public_path('images/movies/' . $this->title_img))) {
+            return unlink(public_path('images/movies/' . $this->title_img));
         }
     }
-    public function img()
+    public function img_show()
     {
-        if ($this->foto2 && file_exists(public_path('images/movies/' . $this->foto2))) {
-            return asset('images/movies/' . $this->foto2);
+        if ($this->img && file_exists(public_path('images/movies/' . $this->img))) {
+            return asset('images/movies/' . $this->img);
         } else {
             return asset('images/no_image.jpg');
         }
@@ -42,8 +46,8 @@ class Movies extends Model
     
     public function deleteImg()
     {
-        if ($this->foto2 && file_exists(public_path('images/movies/' . $this->foto2))) {
-            return unlink(public_path('images/movies/' . $this->foto2));
+        if ($this->img && file_exists(public_path('images/movies/' . $this->img))) {
+            return unlink(public_path('images/movies/' . $this->img));
         }
     }
 }

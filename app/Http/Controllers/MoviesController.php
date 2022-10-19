@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Movies;
+use App\Models\Tiket;
 
 class MoviesController extends Controller
 {
@@ -15,7 +16,7 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $movies = Movies::with('category')->get();
+        $movies = Movies::with('category', 'tiket')->get();
         return view('movies.index', ['movies' => $movies]);
     }
 
@@ -27,7 +28,9 @@ class MoviesController extends Controller
     public function create()
     {
         $category = Category::all();
-        return view('movies.create', compact('category'));
+        $tiket = Tiket::all();
+        return view('movies.create', compact('category', 'tiket'));
+        
     }
 
     /**
@@ -41,9 +44,9 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
-            'title_img' => 'required|image|max:2048',
-            'img' => 'required|image|max:2048',
-            'category_id' => 'required|unique:categories',
+            // 'title_img' => 'required|image|max:2048',
+            // 'img' => 'required|image|max:2048',
+            // 'category_id' => 'required|unique:categories',
             'directory' => 'required',
             'rilis' => 'required',
             'duration' => 'required',
@@ -54,19 +57,20 @@ class MoviesController extends Controller
         $movies = new Movies();
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        if ($request->hasFile('foto')) {
-            $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('foto');
+        if ($request->hasFile('title_img')) {
+            $movies->deleteTitleImg(); //menghapus title_img sebelum di update melalui method deleteImage di model
+            $title_img = $request->file('title_img');
             $name = rand(1000, 9999) . $title_img->getClientOriginalName();
             $title_img->move('image/movies/', $name);
-            $movies->foto = $name;
+            $movies->title_img = $name;
+            // dd($request);
         }
-        if ($request->hasFile('foto2')) {
-            $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
-            $image = $request->file('foto2');
+        if ($request->hasFile('img')) {
+            $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImage di model
+            $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
-            $movies->foto2 = $name;
+            $movies->img = $name;
         }
         $movies->category_id = $request->category_id;
         $movies->directory = $request->directory;
@@ -101,7 +105,9 @@ class MoviesController extends Controller
     {
         $movies = Movies::findOrFail($id);
         $category = Category::all();
-        return view('movies.edit', compact('movies', 'category'));
+        $tiket = Tiket::all();
+
+        return view('movies.edit', compact('movies', 'category', 'tiket'));
     }
 
     /**
@@ -129,19 +135,19 @@ class MoviesController extends Controller
         $movies = Movies::findOrFail($id);
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        if ($request->hasFile('foto')) {
-            $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('foto');
+        if ($request->hasFile('title_img')) {
+            $movies->deleteImage(); //menghapus title_img sebelum di update melalui method deleteImage di model
+            $title_img = $request->file('title_img');
             $name = rand(1000, 9999) . $title_img->getClientOriginalName();
             $title_img->move('image/movies/', $name);
-            $movies->foto = $name;
+            $movies->title_img = $name;
         }
-        if ($request->hasFile('foto2')) {
+        if ($request->hasFile('img')) {
             $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
-            $image = $request->file('foto2');
+            $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
-            $movies->foto2 = $name;
+            $movies->img = $name;
         }
         $movies->category_id = $request->category_id;
         $movies->directory = $request->directory;
@@ -163,7 +169,8 @@ class MoviesController extends Controller
     public function destroy($id)
     {
         $movies = Movies::findOrFail($id);
-        $movies->deleteImage();
+        $movies->deleteTitleImg();
+        $movies->deleteImg();
         $movies->delete();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');

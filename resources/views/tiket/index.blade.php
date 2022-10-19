@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="container" >
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Movies
-                        <a href="{{ route('movies.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                        Data Tiket
+                        <a href="{{ route('tiket.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
@@ -19,49 +20,33 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>decs</th>
-                                        <th>Title_img</th>
-                                        <th>Img</th>
-                                        <th>Category_id</th>
-                                        <th>Directory</th>
-                                        <th>Rilis</th>
-                                        <th>Duration</th>
-                                        <th>Rate</th>
-                                        <th>Riviews</th>
+                                        <th>Kode</th>
+                                        <th>Stok</th>
+                                        <th>Harga</th>
+                                        <th>Kursi</th>
+                                        <th>Judul</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
-                                    @foreach ($movies as $data)
+                                    @foreach ($tiket as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nama }}</td>
-                                            <td>{{ $data->decs }}</td>
-                                            <td>{{ $data->title_img }}
-                                            <img src="{{ $data->title_img_show() }}" style="width: 100px; height:100px;"
-                                                alt="">
-                                            </td>
-                                            <td>{{ $data->img }}
-                                            <img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
-                                                alt="">
-                                            </td>
-                                            <td>{{ $data->category_id }}</td>
-                                            <td>{{ $data->directory }}</td>
-                                            <td>{{ $data->rilis }}</td>
-                                            <td>{{ $data->duration }}</td>
-                                            <td>{{ $data->rate }}</td>
-                                            <td>{{ $data->riviews }}</td>
+                                            <td>{{ $data->kode }}</td>
+                                            <td>{{ $data->stok }}</td>
+                                            <td>{{ $data->harga }}</td>
+                                            <td>{{ $data->nk }}</td>
+                                            <td>{{ $data->judul }}</td>
                                             <td>
-                                                <form action="{{ route('movies.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('tiket.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('movies.edit', $data->id) }}"
+                                                    <a href="{{ route('tiket.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('movies.show', $data->id) }}"
+                                                    <a href="{{ route('tiket.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
                                                     </a> |

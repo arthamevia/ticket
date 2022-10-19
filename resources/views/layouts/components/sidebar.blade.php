@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link text-decoration-none">
         <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin LTE</span>
+        <span class="brand-text font-weight-light">T-Movies</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,7 +15,7 @@
                 <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block text-decoration-none">Category</a>
+                <a href="#" class="d-block text-decoration-none">T-Movies</a>
             </div>
         </div>
 
@@ -37,13 +37,12 @@
                 <li class="nav-item">
                     <a href="{{ url('/admin/post') }}" class="nav-link ">
                         {{-- <a href="{{ url('/admin/post') }}" class="nav-link {{ $judul === 'Post' ? 'active' : '' }}"> --}}
-                        <i class="fas fa-vote-yea"></i>&nbsp;
+                        <i class="fas fa-vote-yea"></i>
                         <p>
-                            Posts
+                            Crud
                         </p>
                     </a>
                 </li>
-                
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

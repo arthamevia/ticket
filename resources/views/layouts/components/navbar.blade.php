@@ -15,6 +15,9 @@
             <a href="{{ url('/movies') }}" class="nav-link">Movies</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('/kursi') }}" class="nav-link">Kursi</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ url('/home') }}" class="nav-link">Home</a>
         </li>
     </ul>

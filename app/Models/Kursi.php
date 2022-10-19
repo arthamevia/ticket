@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
-use App\Models\Movies;
+use App\Models\Kursi;
+use App\Models\Tiket;
 
-class Category extends Model
+class Kursi extends Model
 {
     use HasFactory;
 
-    public function movies()
+    public function tiket()
     {
-        return $this->hasMany(movies::class);
+        return $this->hasMany(Tiket::class);
     }
-    
 }
-
-
