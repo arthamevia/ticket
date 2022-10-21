@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Models\Jadwal;
 use App\Models\Movies;
-use App\Models\Kursi;
 use App\Models\Tiket;
+use Illuminate\Http\Request;
 
-class TiketController extends Controller
+
+class JadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class TiketController extends Controller
      */
     public function index()
     {
-        $tiket = Tiket::with('kursi')->get();
-        return view('tiket.index', compact('tiket'));
+        // $jadwal = Jadwal::with('tiket','movies')->get();
+        $jadwal = Jadwal::all();
+        return view('jadwal.index', compact('jadwal'));
     }
 
     /**
@@ -27,9 +28,9 @@ class TiketController extends Controller
      */
     public function create()
     {
-        $kursi = Kursi::all();
+        $tiket = Tiket::all();
         $movies = Movies::all();
-        return view('tiket.create',compact('kursi', 'movies'));
+        return view('jadwal.create', compact('movies', 'tiket'));
     }
 
     /**
@@ -41,21 +42,22 @@ class TiketController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'kode' => 'required',
-            'stok' => 'required',
-            'harga' => 'required',
-            'nk' => 'required',
             'nama' => 'required',
+            'tgl' => 'required',
+            'tayang' => 'required',
+            'selesai' => 'required',
+            'kode' => 'required',
+
         ]);
 
-        $tiket = new Tiket();
-        $tiket->kode = $request->kode;
-        $tiket->stok = $request->stok;
-        $tiket->harga = $request->harga;
-        $tiket->nk = $request->nk;
-        $tiket->nama = $request->nama;
-        $tiket->save();
-        return redirect()->route('tiket.index')
+        $jadwal = new Jadwal();
+        $jadwal->nama = $request->nama;
+        $jadwal->tgl = $request->tgl;
+        $jadwal->tayang = $request->tayang;
+        $jadwal->selesai = $request->selesai;
+        $jadwal->kode = $request->kode;
+        $jadwal->save();
+        return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');
     }
 
@@ -67,9 +69,10 @@ class TiketController extends Controller
      */
     public function show($id)
     {
-        $tiket = Tiket::findOrFail($id);
-        $kursi = Kursi::all();
-        return view('tiket.show', compact('tiket', 'kursi'));
+        $jadwal = Jadwal::findOrFail($id);
+        $tiket = Tiket::all();
+        $movies = Movies::all();
+        return view('jadwal.show', compact('jadwal','tiket', 'movies'));
     }
 
     /**
@@ -80,10 +83,11 @@ class TiketController extends Controller
      */
     public function edit($id)
     {
-        $tiket = Tiket::findOrFail($id);
-        $kursi = Kursi::all();
+        $jadwal = Jadwal::findOrFail($id);
         $movies = Movies::all();
-        return view('tiket.edit', compact('tiket', 'kursi', 'movies'));
+        $tiket = Tiket::all();
+
+        return view('jadwal.edit', compact('jadwal', 'movies', 'tiket'));
     }
 
     /**
@@ -96,21 +100,21 @@ class TiketController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'kode' => 'required',
-            'stok' => 'required',
-            'harga' => 'required',
-            'nk' => 'required',
             'nama' => 'required',
+            'tgl' => 'required',
+            'tayang' => 'required',
+            'selesai' => 'required',
+            'kode' => 'required',
         ]);
 
-        $tiket = Tiket::findOrFail($id);
-        $tiket->kode = $request->kode;
-        $tiket->stok = $request->stok;
-        $tiket->harga = $request->harga;
-        $tiket->nk = $request->nk;
-        $tiket->nama = $request->nama;
-        $tiket->save();
-        return redirect()->route('tiket.index')
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->nama = $request->nama;
+        $jadwal->tgl = $request->tgl;
+        $jadwal->tayang = $request->tayang;
+        $jadwal->selesai = $request->selesai;
+        $jadwal->kode = $request->kode;
+        $jadwal->save();
+        return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');
     }
 
@@ -122,9 +126,9 @@ class TiketController extends Controller
      */
     public function destroy($id)
     {
-        $tiket = Tiket::findOrFail($id);
-        $tiket->delete();
-        return redirect()->route('tiket.index')
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->delete();
+        return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dihapus!');
     }
 }

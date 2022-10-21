@@ -7,57 +7,13 @@
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Tiket
+                       Buat Data Jadwal
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('tiket.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('jadwal.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Kode</label>
-                                <input type="text" class="form-control  @error('kode') is-invalid @enderror"
-                                    name="kode">
-                                @error('kode')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Stok</label>
-                                <input type="number" class="form-control  @error('stok') is-invalid @enderror"
-                                    name="stok">
-                                @error('stok')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Harga</label>
-                                <input type="Number" class="form-control  @error('harga') is-invalid @enderror"
-                                    name="harga">
-                                @error('harga')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Pilih Data Nomor Kursi</label>
-                                <select name="nk" class="form-control @error('nk') is-invalid @enderror"
-                                    id="">
-                                    @foreach ($kursi as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nk }}</option>
-                                    @endforeach
-                                </select>
-                                @error('nk')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                                <div class="mb-3">
-                                <label class="form-label">Pilih Data Judul</label>
+                                <label class="form-label">Judul</label>
                                 <select name="nama" class="form-control @error('nama') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
@@ -71,11 +27,55 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Tanggal Tayang </label>
+                                <input type="date" class="form-control  @error('tgl') is-invalid @enderror"
+                                    name="tgl">
+                                @error('tgl')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jam Tayang</label>
+                                <input type="time" class="form-control  @error('tayang') is-invalid @enderror"
+                                    name="tayang">
+                                @error('tayang')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jam Selesai </label>
+                                <input type="time" class="form-control  @error('selesai') is-invalid @enderror"
+                                    name="selesai">
+                                @error('selesai')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Kode Tiket</label>
+                                <select name="kode" class="form-control @error('kode') is-invalid @enderror"
+                                    id="">
+                                    @foreach ($tiket as $data)
+                                        <option value="{{ $data->id }}">{{ $data->kode }}</option>
+                                    @endforeach
+                                </select>
+                                @error('kode')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>
+                                    <a href="{{ route('jadwal.index') }}" class="btn btn-primary">Kembali</a>
                                 </div>
                             </div>
-                            
                         </form>
                     </div>
                 </div>

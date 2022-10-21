@@ -10,7 +10,7 @@
                         Edit Data Movies
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('movies.update', $movies->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('movies.update', $movies->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="mb-3">

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Movies;
 use App\Models\Tiket;
+use App\Models\Jadwal;
 
 class Movies extends Model
 {
@@ -16,9 +17,15 @@ class Movies extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     public function tiket()
     {
         return $this->belongsTo(Tiket::class);
+    }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(Jadwal::class);
     }
 
     public function title_img_show()

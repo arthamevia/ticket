@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\KursiController;
 use App\Http\Controllers\TiketController;
+use App\Http\Controllers\JadwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::resource('category', CategoryController::class);
 Route::resource('movies', MoviesController::class);
 Route::resource('kursi', KursiController::class);
 Route::resource('tiket', TiketController::class);
+Route::resource('jadwal', JadwalController::class);

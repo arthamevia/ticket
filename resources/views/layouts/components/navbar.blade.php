@@ -20,9 +20,9 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ url('/tiket') }}" class="nav-link">Tiket</a>
         </li>
-        <!-- <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('/home') }}" class="nav-link">Home</a>
-        </li> -->
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('/jadwal') }}" class="nav-link">Jadwal Tayang</a>
+        </li>
     </ul>
 
     <!-- Right navbar links -->

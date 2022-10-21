@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Tiket;
 use App\Models\Kursi;
 use App\Models\Movies;
+use App\Models\Jadwal;
 
 class Tiket extends Model
 {
@@ -19,5 +20,10 @@ class Tiket extends Model
     public function movies()
     {
         return $this->hasMany(Movies::class);
+    }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(Jadwal::class);
     }
 }
