@@ -35,7 +35,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->kode }}</td>
                                             <td>{{ $data->stok }}</td>
-                                            <td>{{ $data->harga }}</td>
+                                            <td>Rp {{ $data->harga }}</td>
                                             <td>{{ $data->nk }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>

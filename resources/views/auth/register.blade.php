@@ -36,6 +36,20 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
+                        <input type="number" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror"
+                            placeholder="Enter your No telepon">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        @error('no_hp')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             placeholder="Email">
                         <div class="input-group-append">

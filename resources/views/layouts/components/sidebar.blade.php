@@ -32,20 +32,79 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ url('/admin/post') }}" class="nav-link ">
-                        {{-- <a href="{{ url('/admin/post') }}" class="nav-link {{ $judul === 'Post' ? 'active' : '' }}"> --}}
-                        <i class="fas fa-vote-yea"></i>
-                        <p>
-                            Crud
-                        </p>
+                    <a href="/category" class="nav-link ">
+                        {{-- <a href="/category" class="nav-link {{ $judul === 'category' ? 'active' : '' }}"> --}}
+                        <i class="fas fa-user"></i>
+                        <p>Category</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/movies" class="nav-link ">
+                        {{-- <a href="/movies" class="nav-link {{ $judul === 'movies' ? 'active' : '' }}"> --}}
+                        <i class="fas fa-film"></i>
+                        <p>Movies</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/kursi" class="nav-link ">
+                        {{-- <a href="/kursi" class="nav-link {{ $judul === 'kursi' ? 'active' : '' }}"> --}}
+                        <i class="fas fa-chair"></i>
+                        <p>Kursi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/tiket" class="nav-link ">
+                        {{-- <a href="/tiket" class="nav-link {{ $judul === 'tiket' ? 'active' : '' }}"> --}}
+                        <i class="fas fa-film"></i>
+                        <p>Tiket</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/jadwal" class="nav-link ">
+                        {{-- <a href="/jadwal" class="nav-link {{ $judul === 'jadwal' ? 'active' : '' }}"> --}}
+                        <i class="fas fa-calendar"></i>
+                        <p>Jadwal Tayang</p>
                     </a>
                 </li>
             </ul>
-        </nav>
+    
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+
+    <!-- <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('admin/kategori*') ? 'active' : '' }}">
+                    <a href="/admin/kategori" class="menu-link">
+                        <i class="menu-icon tf-icons bi bi-bookmark-fill"></i>
+                        <div data-i18n="Analytics">Data Kategori</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('admin/sub_kategori*') ? 'active' : '' }}">
+                    <a href="/admin/sub_kategori" class="menu-link">
+                        <i class="menu-icon tf-icons bi bi-bookmarks-fill"></i>
+                        <div data-i18n="Analytics">Data Sub Kategori</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('admin/produk*') ? 'active' : '' }}">
+                    <a href="/admin/produk" class="menu-link">
+                        <i class="menu-icon tf-icons bi bi-bag-fill"></i>
+                        <div data-i18n="Analytics">Data Produk</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('admin/riwayat_produk*') ? 'active' : '' }}">
+                    <a href="/admin/riwayat_produk" class="menu-link">
+                        <i class="menu-icon tf-icons bi bi-calendar2-week-fill"></i>
+                        <div data-i18n="Analytics">Riwayat Produk</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
+                    <a href="/admin/voucher" class="menu-link">
+                        <i class="menu-icon tf-icons bi bi-envelope-x-fill"></i>
+                        <div data-i18n="Analytics">Data voucher</div>
+                    </a>
+                </li>
+            </ul> -->
 </aside>
