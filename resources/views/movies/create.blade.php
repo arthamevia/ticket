@@ -33,16 +33,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Title movies</label>
-                                <input type="file" class="form-control  @error('title_img') is-invalid @enderror"
-                                    name="title_img">
-                                @error('title_img')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Foto movies</label>
                                 <input type="file" class="form-control  @error('img') is-invalid @enderror"
                                     name="img">

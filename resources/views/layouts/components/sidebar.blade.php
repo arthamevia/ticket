@@ -58,7 +58,7 @@
                 <li class="nav-item">
                     <a href="/tiket" class="nav-link ">
                         {{-- <a href="/tiket" class="nav-link {{ $judul === 'tiket' ? 'active' : '' }}"> --}}
-                        <i class="fas fa-film"></i>
+                        <i class="bi bi-airplane-fill"></i>
                         <p>Tiket</p>
                     </a>
                 </li>

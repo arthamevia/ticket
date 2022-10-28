@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Movies;
 use App\Models\Tiket;
 use App\Models\Jadwal;
+use App\Models\Status;
+use App\Models\Transaksi;
 
 class Movies extends Model
 {
@@ -28,21 +30,16 @@ class Movies extends Model
         return $this->belongsTo(Jadwal::class);
     }
 
-    public function title_img_show()
+    public function status()
     {
-        if ($this->title_img && file_exists(public_path('images/movies/' . $this->title_img))) {
-            return asset('images/movies/' . $this->title_img);
-        } else {
-            return asset('images/no_image.jpg');
-        }
+        return $this->belongsTo(Status::class);
     }
-    
-    public function deleteTitleImg()
+
+    public function transaksi()
     {
-        if ($this->title_img && file_exists(public_path('images/movies/' . $this->title_img))) {
-            return unlink(public_path('images/movies/' . $this->title_img));
-        }
+        return $this->hasMany(Transaksi::class);
     }
+
     public function img_show()
     {
         if ($this->img && file_exists(public_path('images/movies/' . $this->img))) {

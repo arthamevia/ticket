@@ -57,14 +57,7 @@ class MoviesController extends Controller
         $movies = new Movies();
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        if ($request->hasFile('title_img')) {
-            $movies->deleteTitleImg(); //menghapus title_img sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('title_img');
-            $name = rand(1000, 9999) . $title_img->getClientOriginalName();
-            $title_img->move('image/movies/', $name);
-            $movies->title_img = $name;
-            // dd($request);
-        }
+        
         if ($request->hasFile('img')) {
             $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImage di model
             $image = $request->file('img');
@@ -122,7 +115,6 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
-            'title_img' => 'required|image|max:2048',
             'img' => 'required|image|max:2048',
             'category_id' => 'required|unique:categories',
             'directory' => 'required',
@@ -135,13 +127,7 @@ class MoviesController extends Controller
         $movies = Movies::findOrFail($id);
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        if ($request->hasFile('title_img')) {
-            $movies->deleteImage(); //menghapus title_img sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('title_img');
-            $name = rand(1000, 9999) . $title_img->getClientOriginalName();
-            $title_img->move('image/movies/', $name);
-            $movies->title_img = $name;
-        }
+        
         if ($request->hasFile('img')) {
             $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
             $image = $request->file('img');
@@ -169,7 +155,6 @@ class MoviesController extends Controller
     public function destroy($id)
     {
         $movies = Movies::findOrFail($id);
-        $movies->deleteTitleImg();
         $movies->deleteImg();
         $movies->delete();
         return redirect()->route('movies.index')

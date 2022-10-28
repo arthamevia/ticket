@@ -21,6 +21,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Title</th>
+                                        <th>Title_img</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -30,6 +31,10 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->title }}</td>
+                                            <td>{{ $data->title_img }}
+                                            <img src="{{ $data->title_img_show() }}" style="width: 100px; height:100px;"
+                                                alt="">
+                                            </td>
                                             <td>
                                                 <form action="{{ route('category.destroy', $data->id) }}" method="post">
                                                     @csrf

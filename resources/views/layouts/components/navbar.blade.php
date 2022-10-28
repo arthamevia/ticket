@@ -6,7 +6,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('/home') }}" class="nav-link">Home</a>
+            <a href="{{ url('/user') }}" class="nav-link">User</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ url('/category') }}" class="nav-link">Category</a>
@@ -22,6 +22,12 @@
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ url('/jadwal') }}" class="nav-link">Jadwal Tayang</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('/status') }}" class="nav-link">Gendre</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ url('/transaksi') }}" class="nav-link">Transaksi</a>
         </li>
     </ul>
 

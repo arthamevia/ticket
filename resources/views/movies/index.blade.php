@@ -21,7 +21,6 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>decs</th>
-                                        <th>Title_img</th>
                                         <th>Img</th>
                                         <th>Category_id</th>
                                         <th>Directory</th>
@@ -39,10 +38,6 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->decs }}</td>
-                                            <td>{{ $data->title_img }}
-                                            <img src="{{ $data->title_img_show() }}" style="width: 100px; height:100px;"
-                                                alt="">
-                                            </td>
                                             <td>{{ $data->img }}
                                             <img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
                                                 alt="">

@@ -19,7 +19,6 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('decs');
-            $table->string('title_img');
             $table->string('img');
             $table->UnsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

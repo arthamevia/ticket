@@ -8,6 +8,9 @@ use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\KursiController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +37,8 @@ Route::resource('movies', MoviesController::class);
 Route::resource('kursi', KursiController::class);
 Route::resource('tiket', TiketController::class);
 Route::resource('jadwal', JadwalController::class);
+Route::resource('user', UserController::class);
+Route::resource('status', StatusController::class);
+Route::resource('transaksi', TransaksiController::class);
+
+

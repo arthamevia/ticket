@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Jadwal;
 use App\Models\Movies;
+use App\Models\Transaksi;
 
 
 class Jadwal extends Model
@@ -20,4 +21,5 @@ class Jadwal extends Model
     {
         return $this->hasMany(Movies::class);
     }
+    
 }

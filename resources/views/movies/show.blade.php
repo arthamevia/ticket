@@ -18,15 +18,6 @@
                             <input type="text" class="form-control" name="decs" value="{{ $movies->decs }}" readonly>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Title movies</label>
-                            @if (isset($movies) && $movies->title_img)
-                                <p>
-                                    <img src="{{ asset('images/movies/' . $movies->title_img) }}" class="img-rounded img-responsive"
-                                        style="width: 75px; height:75px;" alt="">
-                                </p>
-                            @endif
-                        </div>
-                        <div class="mb-3">
                             <label class="form-label">Image movies</label>
                             @if (isset($movies) && $movies->img)
                                 <p>
