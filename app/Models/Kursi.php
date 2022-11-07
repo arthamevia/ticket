@@ -12,11 +12,6 @@ class Kursi extends Model
 {
     use HasFactory;
 
-    public function tiket()
-    {
-        return $this->hasMany(Tiket::class);
-    }
-
     public function transaksi()
     {
         return $this->hasMany(Transaksi::class);

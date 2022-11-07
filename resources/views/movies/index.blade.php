@@ -21,13 +21,14 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>decs</th>
+                                        <th>Harga</th>
                                         <th>Img</th>
                                         <th>Category_id</th>
                                         <th>Directory</th>
                                         <th>Rilis</th>
                                         <th>Duration</th>
                                         <th>Rate</th>
-                                        <th>Riviews</th>
+                                        <th>Stok</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -38,8 +39,9 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->decs }}</td>
-                                            <td>{{ $data->img }}
-                                            <img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
+                                            <td>Rp {{ $data->harga }}</td>
+                                            <!-- <td>{{ $data->img }} -->
+                                            <td><img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
                                                 alt="">
                                             </td>
                                             <td>{{ $data->category_id }}</td>
@@ -47,7 +49,7 @@
                                             <td>{{ $data->rilis }}</td>
                                             <td>{{ $data->duration }}</td>
                                             <td>{{ $data->rate }}</td>
-                                            <td>{{ $data->riviews }}</td>
+                                            <td>{{ $data->stok }}</td>
                                             <td>
                                                 <form action="{{ route('movies.destroy', $data->id) }}" method="post">
                                                     @csrf

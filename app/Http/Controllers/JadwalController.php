@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Jadwal;
 use App\Models\Movies;
-use App\Models\Tiket;
 use Illuminate\Http\Request;
 
 
@@ -28,9 +27,8 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        $tiket = Tiket::all();
         $movies = Movies::all();
-        return view('jadwal.create', compact('movies', 'tiket'));
+        return view('jadwal.create', compact('movies'));
     }
 
     /**
@@ -46,7 +44,6 @@ class JadwalController extends Controller
             'tgl' => 'required',
             'tayang' => 'required',
             'selesai' => 'required',
-            'kode' => 'required',
 
         ]);
 
@@ -55,7 +52,6 @@ class JadwalController extends Controller
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
         $jadwal->selesai = $request->selesai;
-        $jadwal->kode = $request->kode;
         $jadwal->save();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -70,9 +66,8 @@ class JadwalController extends Controller
     public function show($id)
     {
         $jadwal = Jadwal::findOrFail($id);
-        $tiket = Tiket::all();
         $movies = Movies::all();
-        return view('jadwal.show', compact('jadwal','tiket', 'movies'));
+        return view('jadwal.show', compact('jadwal','movies'));
     }
 
     /**
@@ -85,9 +80,8 @@ class JadwalController extends Controller
     {
         $jadwal = Jadwal::findOrFail($id);
         $movies = Movies::all();
-        $tiket = Tiket::all();
 
-        return view('jadwal.edit', compact('jadwal', 'movies', 'tiket'));
+        return view('jadwal.edit', compact('jadwal', 'movies'));
     }
 
     /**
@@ -104,7 +98,6 @@ class JadwalController extends Controller
             'tgl' => 'required',
             'tayang' => 'required',
             'selesai' => 'required',
-            'kode' => 'required',
         ]);
 
         $jadwal = Jadwal::findOrFail($id);
@@ -112,7 +105,6 @@ class JadwalController extends Controller
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
         $jadwal->selesai = $request->selesai;
-        $jadwal->kode = $request->kode;
         $jadwal->save();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');

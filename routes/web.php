@@ -6,11 +6,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\KursiController;
-use App\Http\Controllers\TiketController;
+// use App\Http\Controllers\TiketController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
+// use App\Http\Controllers\QRCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +36,16 @@ Route::post('/login', 'Auth\LoginController@login')->middleware('admin');
 Route::resource('category', CategoryController::class);
 Route::resource('movies', MoviesController::class);
 Route::resource('kursi', KursiController::class);
-Route::resource('tiket', TiketController::class);
+// Route::resource('tiket', TiketController::class);
 Route::resource('jadwal', JadwalController::class);
 Route::resource('user', UserController::class);
 Route::resource('status', StatusController::class);
 Route::resource('transaksi', TransaksiController::class);
+
+// qr
+Route::get('/generate-qrcode', [App\Http\Controllers\QrCodeController::class, 'index']);
+
+
+// Route::get('/', 'QRCodeController@index');
 
 

@@ -24,7 +24,6 @@
                                         <th>Tanggal Tayang</th>
                                         <th>Jam Tayang</th>
                                         <th>Jam Selesai</th>
-                                        <th>Kode Tiket</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -37,7 +36,6 @@
                                             <td>{{ $data->tgl }}</td>
                                             <td>{{ $data->tayang }}</td>
                                             <td>{{ $data->selesai }}</td>
-                                            <td>{{ $data->kode }}</td>
                                             <td>
                                                 <form action="{{ route('jadwal.destroy', $data->id) }}" method="post">
                                                     @csrf

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Movies;
-use App\Models\Tiket;
+
 
 class MoviesController extends Controller
 {
@@ -16,7 +16,9 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $movies = Movies::with('category', 'tiket')->get();
+        // $movies = Movies::with(['category'])->get();
+        // return response()->json($movies);
+        $movies = Movies::with('category')->get();
         return view('movies.index', ['movies' => $movies]);
     }
 
@@ -28,8 +30,7 @@ class MoviesController extends Controller
     public function create()
     {
         $category = Category::all();
-        $tiket = Tiket::all();
-        return view('movies.create', compact('category', 'tiket'));
+        return view('movies.create', compact('category'));
         
     }
 
@@ -44,6 +45,7 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
+            'harga' => 'required',
             // 'title_img' => 'required|image|max:2048',
             // 'img' => 'required|image|max:2048',
             // 'category_id' => 'required|unique:categories',
@@ -51,12 +53,13 @@ class MoviesController extends Controller
             'rilis' => 'required',
             'duration' => 'required',
             'rate' => 'required',
-            'riviews' => 'required',
+            'stok' => 'required',
         ]);
 
         $movies = new Movies();
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
+        $movies->harga = $request->harga;
         
         if ($request->hasFile('img')) {
             $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImage di model
@@ -70,7 +73,7 @@ class MoviesController extends Controller
         $movies->rilis = $request->rilis;
         $movies->duration = $request->duration;
         $movies->rate = $request->rate;
-        $movies->riviews = $request->riviews;
+        $movies->stok = $request->stok;
         $movies->save();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -98,9 +101,8 @@ class MoviesController extends Controller
     {
         $movies = Movies::findOrFail($id);
         $category = Category::all();
-        $tiket = Tiket::all();
 
-        return view('movies.edit', compact('movies', 'category', 'tiket'));
+        return view('movies.edit', compact('movies', 'category'));
     }
 
     /**
@@ -115,18 +117,20 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
+            'harga' => 'required',
             'img' => 'required|image|max:2048',
             'category_id' => 'required|unique:categories',
             'directory' => 'required',
             'rilis' => 'required',
             'duration' => 'required',
             'rate' => 'required',
-            'riviews' => 'required',
+            'stok' => 'required',
         ]);
 
         $movies = Movies::findOrFail($id);
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
+        $movies->harga = $request->harga;
         
         if ($request->hasFile('img')) {
             $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
@@ -140,7 +144,7 @@ class MoviesController extends Controller
         $movies->rilis = $request->rilis;
         $movies->duration = $request->duration;
         $movies->rate = $request->rate;
-        $movies->riviews = $request->riviews;
+        $movies->stok = $request->stok;
         $movies->save();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');

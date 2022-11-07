@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Movies;
 use App\Models\Jadwal;
 use App\Models\Kursi;
+use Illuminate\Support\Str;
+
 
 class TransaksiController extends Controller
 {
@@ -43,6 +45,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
+        // $qr_code = Str::random(20);
         $validated = $request->validate([
             'kode_transaksi' => 'required',
             'id_costumer' => 'required|unique:users',
@@ -55,6 +58,7 @@ class TransaksiController extends Controller
             // 'category_id' => 'required|unique:categories',
             'total_harga' => 'required',
             'tgl_psn' => 'required',
+            // 'qr_code' => $qr_code,
         ]);
 
         $transaksi = new Transaksi();
@@ -66,6 +70,7 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
+        // $transaksi->qr_code = $qr_code;
         $transaksi->save();
         return redirect()->route('transaksi.index')
             ->with('success', 'Data berhasil dibuat!');

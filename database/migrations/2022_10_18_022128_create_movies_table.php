@@ -19,6 +19,7 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('decs');
+            $table->integer('harga');
             $table->string('img');
             $table->UnsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
@@ -26,7 +27,7 @@ class CreateMoviesTable extends Migration
             $table->string('rilis');
             $table->time('duration');
             $table->integer('rate');
-            $table->integer('riviews');
+            $table->integer('stok');
             $table->timestamps();
 
                     

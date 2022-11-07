@@ -32,6 +32,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('banyak');
             $table->integer('total_harga');
             $table->date('tgl_psn');
+            $table->string('qr_code');
             $table->timestamps();
         });
     }

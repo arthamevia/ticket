@@ -57,20 +57,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Kode Tiket</label>
-                                <select name="kode" class="form-control @error('kode') is-invalid @enderror"
-                                    id="">
-                                    @foreach ($tiket as $data)
-                                        <option value="{{ $data->id }}">{{ $data->kode }}</option>
-                                    @endforeach
-                                </select>
-                                @error('kode')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>
                                     <a href="{{ route('jadwal.index') }}" class="btn btn-primary">Kembali</a>

@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Jadwal;
 use App\Models\Movies;
-use App\Models\Tiket;
+
 
 class CreateJadwalsTable extends Migration
 {
@@ -23,8 +23,6 @@ class CreateJadwalsTable extends Migration
             $table->date('tgl');
             $table->time('tayang');
             $table->time('selesai');
-            $table->UnsignedBigInteger('kode');
-            $table->foreign('kode')->references('id')->on('tikets')->onDelete('cascade');
             $table->timestamps();
         });
     }

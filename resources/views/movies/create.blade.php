@@ -33,6 +33,16 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Harga </label>
+                                <input type="number" class="form-control  @error('harga') is-invalid @enderror"
+                                    name="harga">
+                                @error('harga')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Foto movies</label>
                                 <input type="file" class="form-control  @error('img') is-invalid @enderror"
                                     name="img">
@@ -97,10 +107,10 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Riviews </label>
-                                <input type="number" class="form-control  @error('riviews') is-invalid @enderror"
-                                    name="riviews">
-                                @error('riviews')
+                                <label class="form-label">Stok </label>
+                                <input type="number" class="form-control  @error('stok') is-invalid @enderror"
+                                    name="stok">
+                                @error('stok')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

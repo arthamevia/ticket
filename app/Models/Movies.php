@@ -20,11 +20,6 @@ class Movies extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function tiket()
-    {
-        return $this->belongsTo(Tiket::class);
-    }
-
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class);

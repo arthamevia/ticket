@@ -31,7 +31,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->title }}</td>
-                                            <td>{{ $data->title_img }}
+                                            <td>
                                             <img src="{{ $data->title_img_show() }}" style="width: 100px; height:100px;"
                                                 alt="">
                                             </td>

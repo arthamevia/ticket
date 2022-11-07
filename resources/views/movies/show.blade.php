@@ -18,6 +18,10 @@
                             <input type="text" class="form-control" name="decs" value="{{ $movies->decs }}" readonly>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Harga</label>
+                            <input type="number" class="form-control" name="harga" value="{{ $movies->harga }}" readonly>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Image movies</label>
                             @if (isset($movies) && $movies->img)
                                 <p>
@@ -48,8 +52,8 @@
                             <input type="text" class="form-control" name="rate" value="{{ $movies->rate }}" readonly>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Riviews</label>
-                            <input type="text" class="form-control" name="riviews" value="{{ $movies->riviews }}" readonly>
+                            <label class="form-label">Stok</label>
+                            <input type="number" class="form-control" name="stok" value="{{ $movies->stok }}" readonly>
                         </div>
                         <div class="mb-3">
                             <div class="d-grid gap-2">
