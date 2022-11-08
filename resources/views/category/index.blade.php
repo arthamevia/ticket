@@ -32,7 +32,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->title }}</td>
                                             <td>
-                                            <img src="{{ $data->title_img_show() }}" style="width: 100px; height:100px;"
+                                            <img src="$data->title_img_show()" style="width: 100px; height:100px;"
                                                 alt="">
                                             </td>
                                             <td>
@@ -43,10 +43,10 @@
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('category.show', $data->id) }}"
+                                                    <!-- <a href="{{ route('category.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
-                                                    </a> |
+                                                    </a> | -->
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>

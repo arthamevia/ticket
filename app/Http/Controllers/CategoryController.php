@@ -40,17 +40,17 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
+            
         ]);
 
         $category = new Category();
         $category->title = $request->title;
         if ($request->hasFile('title_img')) {
             $category->deleteTitleImg(); //menghapus title_img sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('title_img');
-            $name = rand(1000, 9999) . $title_img->getClientOriginalName();
-            $title_img->move('image/category/', $name);
+            $image = $request->file('title_img');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('image/category/', $name);
             $category->title_img = $name;
-            // dd($request);
         }
         $category->save();
         return redirect()->route('category.index')

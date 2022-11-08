@@ -7,7 +7,7 @@
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                       Buat Data Status
+                       Buat Data Klasifikasi
                     </div>
                     <div class="card-body">
                         <form action="{{ route('status.store') }}" method="post" enctype="multipart/form-data">

@@ -38,10 +38,10 @@
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('kursi.show', $data->id) }}"
+                                                    <!-- <a href="{{ route('kursi.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
-                                                    </a> |
+                                                    </a> | -->
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>

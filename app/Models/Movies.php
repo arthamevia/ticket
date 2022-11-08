@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Movies;
-use App\Models\Tiket;
 use App\Models\Jadwal;
 use App\Models\Status;
 use App\Models\Transaksi;
@@ -22,7 +21,7 @@ class Movies extends Model
 
     public function jadwal()
     {
-        return $this->belongsTo(Jadwal::class);
+        return $this->hasMany(Jadwal::class);
     }
 
     public function status()

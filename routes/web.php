@@ -11,6 +11,7 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\StudioController;
 // use App\Http\Controllers\QRCodeController;
 
 /*
@@ -41,6 +42,7 @@ Route::resource('jadwal', JadwalController::class);
 Route::resource('user', UserController::class);
 Route::resource('status', StatusController::class);
 Route::resource('transaksi', TransaksiController::class);
+Route::resource('studio', StudioController::class);
 
 // qr
 Route::get('/generate-qrcode', [App\Http\Controllers\QrCodeController::class, 'index']);

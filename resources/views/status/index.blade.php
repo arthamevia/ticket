@@ -7,7 +7,7 @@
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Status
+                        Data Klasifikasi
                         <a href="{{ route('status.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>

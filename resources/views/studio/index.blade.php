@@ -1,15 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <div class="container" >
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Jadwal
-                        <a href="{{ route('jadwal.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                        Data Studio
+                        <a href="{{ route('studio.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
@@ -20,40 +19,30 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Movies</th>
-                                        <th>Id Studio</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>Tanggal Tayang</th>
-                                        <th>Jam Tayang</th>
-                                        <th>Jam Selesai</th>
+                                        <th>Nama</th>
+                                        <th>Jumlah Seat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
-                                    @foreach ($jadwal as $data)
+                                    @foreach ($studio as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->id_movie }}</td>
-                                            <td>{{ $data->id_studio }}</td>
-                                            <td>{{ $data->harga }}</td>
-                                            <td>{{ $data->stok }}</td>
-                                            <td>{{ $data->tgl }}</td>
-                                            <td>{{ $data->tayang }}</td>
-                                            <td>{{ $data->selesai }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->jumlah_seat }}</td>
                                             <td>
-                                                <form action="{{ route('jadwal.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('studio.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('jadwal.edit', $data->id) }}"
+                                                    <a href="{{ route('studio.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('jadwal.show', $data->id) }}"
+                                                    <!-- <a href="{{ route('studio.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
-                                                    </a> |
+                                                    </a> | -->
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>

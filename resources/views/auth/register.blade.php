@@ -44,49 +44,77 @@
 
         <!-- Sign Up Start -->
         <div class="container-fluid">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
+                            <a href="{{ route('register') }}" class="">
                                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>T-MOVIE</h3>
                             </a>
                             <h3>Sign Up</h3>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                            placeholder="Full name">
-                            <label for="name">Nama</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <textarea id="alamat" cols="10" rows="4" class="form-control @error('alamat') is-invalid @enderror"
-                            name="alamat" required autocomplete="alamat" placeholder="Enter your alamat" autofocus>{{ old('alamat') }}</textarea>
-                            @error('alamat')
+                        <div class="col mb-3">
+                            <label for="name" class="form-label">Nama</label>
+                            <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name"
+                                placeholder="Nama Lengkap" autofocus value="{{ old('name') }}" />
+                            @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
-                        <div class="form-floating mb-3">
-                        <label class="form-label">Jenis Kelamin</label>
-                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
-                                <option value="laki_laki">laki-laki</option>
-                                <option value="perempuan">perempuan</option>
-                            </select>
-                            @error('jk')
+                        <div class="mb-3">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <textarea id="alamat" cols="10" rows="4" class="form-control @error('alamat') is-invalid @enderror"
+                                name="alamat" required autocomplete="alamat" placeholder="Masukan alamat lengkap anda" autofocus>{{ old('alamat') }}</textarea>
+                                @error('alamat')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror   
+                                @enderror
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                        <div class="mb-3">
+                            <label for="jk" class="form-label">Jenis Kelamin</label>
+                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
+                                <option hidden>Pilih jenis kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                            @error('jk')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                        <div class="mb-3">
+                            <label for="no_hp" class="form-label">No hp</label>
+                            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" name="no_hp" placeholder="Enter your No hp" autofocus
+                            value="{{ old('no_hp') }}" />
+                            @error('no_hp')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter your email" value="{{ old('email') }}" />
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">Password</label>
+                            <input  type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
@@ -96,7 +124,8 @@
                             <a href="">Forgot Password</a>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                        <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                        </form>
+                        <p class="text-center mb-0">Already have an Account? <a href="/login">Sign In</a></p>
                     </div>
                 </div>
             </div>

@@ -13,14 +13,48 @@
                         <form action="{{ route('jadwal.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Judul</label>
-                                <select name="nama" class="form-control @error('nama') is-invalid @enderror"
+                                <label class="form-label">Id Movie</label>
+                                <select name="id_movie" class="form-control @error('id_movie') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->id_movie }}</option>
                                     @endforeach
                                 </select>
-                                @error('nama')
+                                @error('id_movie')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Id Studio</label>
+                                <select name="id_studio" class="form-control @error('id_studio') is-invalid @enderror"
+                                    id="">
+                                    @foreach ($studio as $data)
+                                        <option value="{{ $data->id }}">{{ $data->id_studio }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_studio')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Harga </label>
+                                <input type="number" class="form-control  @error('harga') is-invalid @enderror"
+                                    name="harga">
+                                @error('harga')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Stok </label>
+                                <input type="number" class="form-control  @error('stok') is-invalid @enderror"
+                                    name="stok">
+                                @error('stok')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

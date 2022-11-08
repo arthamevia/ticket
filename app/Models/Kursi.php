@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Kursi;
 use App\Models\Tiket;
 use App\Models\Transaksi;
+use App\Models\Studio;
 
 class Kursi extends Model
 {
@@ -16,4 +17,10 @@ class Kursi extends Model
     {
         return $this->hasMany(Transaksi::class);
     }
+    public function studio()
+    {
+        return $this->belongsTo(Studio::class);
+    }
+
+
 }

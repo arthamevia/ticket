@@ -45,7 +45,6 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
-            'harga' => 'required',
             // 'title_img' => 'required|image|max:2048',
             // 'img' => 'required|image|max:2048',
             // 'category_id' => 'required|unique:categories',
@@ -53,13 +52,11 @@ class MoviesController extends Controller
             'rilis' => 'required',
             'duration' => 'required',
             'rate' => 'required',
-            'stok' => 'required',
         ]);
 
         $movies = new Movies();
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        $movies->harga = $request->harga;
         
         if ($request->hasFile('img')) {
             $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImage di model
@@ -73,7 +70,6 @@ class MoviesController extends Controller
         $movies->rilis = $request->rilis;
         $movies->duration = $request->duration;
         $movies->rate = $request->rate;
-        $movies->stok = $request->stok;
         $movies->save();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -117,20 +113,17 @@ class MoviesController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'decs' => 'required',
-            'harga' => 'required',
             'img' => 'required|image|max:2048',
             'category_id' => 'required|unique:categories',
             'directory' => 'required',
             'rilis' => 'required',
             'duration' => 'required',
             'rate' => 'required',
-            'stok' => 'required',
         ]);
 
         $movies = Movies::findOrFail($id);
         $movies->nama = $request->nama;
         $movies->decs = $request->decs;
-        $movies->harga = $request->harga;
         
         if ($request->hasFile('img')) {
             $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
@@ -144,7 +137,6 @@ class MoviesController extends Controller
         $movies->rilis = $request->rilis;
         $movies->duration = $request->duration;
         $movies->rate = $request->rate;
-        $movies->stok = $request->stok;
         $movies->save();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');

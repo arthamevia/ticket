@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Jadwal;
 use App\Models\Movies;
+use App\Models\Studio;
 use Illuminate\Http\Request;
 
 
@@ -17,7 +18,8 @@ class JadwalController extends Controller
     {
         // $jadwal = Jadwal::with('tiket','movies')->get();
         $jadwal = Jadwal::all();
-        return view('jadwal.index', compact('jadwal'));
+        $studio = Studio::all();
+        return view('jadwal.index', compact('jadwal', 'studio'));
     }
 
     /**
@@ -28,7 +30,8 @@ class JadwalController extends Controller
     public function create()
     {
         $movies = Movies::all();
-        return view('jadwal.create', compact('movies'));
+        $studio = Studio::all();
+        return view('jadwal.create', compact('movies','studio'));
     }
 
     /**
@@ -40,7 +43,10 @@ class JadwalController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required',
+            'id_movie' => 'required|unique:movies',
+            'id_studio' => 'required|unique:studios',
+            'harga' => 'required',
+            'stok' => 'required',
             'tgl' => 'required',
             'tayang' => 'required',
             'selesai' => 'required',
@@ -48,7 +54,10 @@ class JadwalController extends Controller
         ]);
 
         $jadwal = new Jadwal();
-        $jadwal->nama = $request->nama;
+        $jadwal->id_movie = $request->id_movie;
+        $jadwal->id_studio = $request->id_studio;
+        $jadwal->harga = $request->harga;
+        $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
         $jadwal->selesai = $request->selesai;

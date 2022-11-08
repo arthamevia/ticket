@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Jadwal;
 use App\Models\Movies;
 use App\Models\Transaksi;
+use App\Models\Studio;
 
 
 class Jadwal extends Model
@@ -19,7 +20,11 @@ class Jadwal extends Model
 
     public function movies()
     {
-        return $this->hasMany(Movies::class);
+        return $this->belongsTo(Movies::class);
     }
     
+    public function studio()
+    {
+        return $this->hasMany(Studio::class);
+    }
 }

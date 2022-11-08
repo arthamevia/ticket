@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Tiket;
 use App\Models\kursi;
+use App\Models\Studio;
 
 class CreateKursisTable extends Migration
 {
@@ -17,6 +18,8 @@ class CreateKursisTable extends Migration
     {
         Schema::create('kursis', function (Blueprint $table) {
             $table->id();
+            $table->UnsignedBigInteger('id_studio');
+            $table->foreign('id_studio')->references('id')->on('studios')->onDelete('cascade');
             $table->string('nk');
             $table->timestamps();
         });

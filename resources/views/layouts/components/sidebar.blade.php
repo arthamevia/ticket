@@ -24,13 +24,15 @@
                         </div>
                     </div> -->
                     <a href="/category" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
-                    <a href="/movies" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Movie</a>
-                    <a href="/kursi" class="nav-item nav-link"><i class="fa fa-chair me-2"></i>kursi</a>
-                    <a href="/status" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Status</a>
+                    <a href="/movies" class="nav-item nav-link"><i class="bi bi-film"></i>Movie</a>
+                    <a href="/kursi" class="nav-item nav-link"><i class="fa fa-chair me-2"></i>Kursi</a>
+                    <a href="/studio" class="nav-item nav-link"><i class="bi bi-camera-reels-fill"></i>Studio</a>
+                    <a href="/status" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>klasifikasi</a>
                     <a href="/jadwal" class="nav-item nav-link"><i class="fa fa-calendar me-2"></i>Jadwal</a>
-                    <a href="/transaksi" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Transaksi</a>
-                    <a href="/login" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Login</a>
-                    <a href="/register" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Register</a>
+                    <a href="/transaksi" class="nav-item nav-link"><i class="bi bi-cash"></i>Transaksi</a>
+                    <a href="/user" class="nav-item nav-link"><i class="bi bi-person-fill"></i>Customer</a>
+                    <a href="/login" class="nav-item nav-link"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+                    <a href="/register" class="nav-item nav-link"><i class="bi bi-journal-arrow-down"></i>Register</a>
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
