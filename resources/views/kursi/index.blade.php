@@ -20,6 +20,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Id Studio</th>
                                         <th>Nomor Kursi</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -29,6 +30,7 @@
                                     @foreach ($kursi as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
+                                            <td>{{ $data->id_studio }}</td>
                                             <td>{{ $data->nk }}</td>
                                             <td>
                                                 <form action="{{ route('kursi.destroy', $data->id) }}" method="post">

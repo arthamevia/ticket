@@ -11,6 +11,8 @@
                         <tr>
                             <th>NO</th>
                             <th>User</th>
+                            <th>Alamat</th>
+                            <th>Jenis Kelamin</th>
                             <th>No Telepon</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -29,6 +31,16 @@
                                     <td>
                                         <div class="d-flex">
                                             {{ $user->name }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            {{ $user->alamat }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            {{ $user->jk }}
                                         </div>
                                     </td>
                                     <td>

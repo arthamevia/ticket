@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kursi;
-use App\Models\Tiket;
+use App\Models\Studio;
 
 class KursiController extends Controller
 {
@@ -16,7 +16,8 @@ class KursiController extends Controller
     public function index()
     {
         $kursi = Kursi::all();
-        return view('kursi.index', compact('kursi'));
+        $studio = Studio::all();
+        return view('kursi.index', compact('kursi', 'studio'));
     }
 
     /**
@@ -26,7 +27,8 @@ class KursiController extends Controller
      */
     public function create()
     {
-        return view('kursi.create');
+        $studio = Studio::all();
+        return view('kursi.create', compact('studio'));
     }
 
     /**
@@ -38,10 +40,12 @@ class KursiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'id_studio' => 'required|unique:studios',
             'nk' => 'required',
         ]);
 
         $kursi = new Kursi();
+        $kursi->id_studio = $request->id_studio;
         $kursi->nk = $request->nk;
         $kursi->save();
         return redirect()->route('kursi.index')
@@ -69,7 +73,8 @@ class KursiController extends Controller
     public function edit($id)
     {
         $kursi = Kursi::findOrFail($id);
-        return view('kursi.edit', compact('kursi'));
+        $studio = Studio::all();
+        return view('kursi.edit', compact('kursi', 'studio'));
     }
 
     /**
@@ -82,10 +87,12 @@ class KursiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
+            'id_studio' => 'required|unique:studios',
             'nk' => 'required',
         ]);
 
         $kursi = Kursi::findOrFail($id);
+        $kursi->id_studio = $request->id_studio;
         $kursi->nk = $request->nk;
         $kursi->save();
         return redirect()->route('kursi.index')
