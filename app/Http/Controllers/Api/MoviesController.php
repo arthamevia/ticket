@@ -10,7 +10,7 @@ class MoviesController extends Controller
 {
     public function index (Request $request) 
     {
-        $movies = Movies::with(['category'])->get();
+        $movies = Movies::select(['id', 'nama', 'decs', 'img', 'category_id', 'directory', 'rilis', 'duration', 'rate'])->get();
         return response()->json($movies);
     }
 
@@ -18,7 +18,14 @@ class MoviesController extends Controller
     {
         //validasi
         $validated = $request->validate([
-            'nama' => 'required|unique:movies',
+            'nama' => 'required',
+            'decs' => 'required',
+            'img' => 'required|image|max:2048',
+            'category_id' => 'required|unique:categories',
+            'directory' => 'required',
+            'rilis' => 'required',
+            'duration' => 'required',
+            'rate' => 'required',
         ]);
 
         $movies = new Movies();
@@ -50,6 +57,20 @@ class MoviesController extends Controller
 
         $validasiData = $request->validate($rules);
         $movies->nama = $request->nama;
+        $movies->decs = $request->decs;
+        
+        if ($request->hasFile('img')) {
+            $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
+            $image = $request->file('img');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/movies/', $name);
+            $movies->img = $name;
+        }
+        $movies->category_id = $request->category_id;
+        $movies->directory = $request->directory;
+        $movies->rilis = $request->rilis;
+        $movies->duration = $request->duration;
+        $movies->rate = $request->rate;
         $movies->save();
 
         return response()->json([

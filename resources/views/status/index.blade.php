@@ -19,7 +19,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Movie</th>
+                                        <th>Nama Movies</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -29,7 +29,7 @@
                                     @foreach ($status as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->movie_id }}</td>
+                                            <td>{{ $data->movies->nama }}</td>
                                             <td>{{ $data->jenis }}</td>
                                             <td>
                                                 <form action="{{ route('status.destroy', $data->id) }}" method="post">

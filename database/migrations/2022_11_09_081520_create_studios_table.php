@@ -18,7 +18,7 @@ class CreateStudiosTable extends Migration
         Schema::create('studios', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('jumlah_seat');
+            $table->integer('jumlah_sheet');
             $table->timestamps();
         });
     }

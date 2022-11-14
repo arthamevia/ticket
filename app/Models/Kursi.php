@@ -22,5 +22,4 @@ class Kursi extends Model
         return $this->belongsTo(Studio::class);
     }
 
-
 }

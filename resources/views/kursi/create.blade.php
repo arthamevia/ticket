@@ -13,14 +13,13 @@
                         <form action="{{ route('kursi.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Id Studio</label>
-                                <select name="id_studio" class="form-control @error('id_studio') is-invalid @enderror"
-                                    id="">
-                                    @foreach ($studio as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id_studio }}</option>
+                                <label class="form-label">Nama Studio</label>
+                                <select name="studio_id" class="form-select @error('studio_id') is-invalid @enderror">
+                                    @foreach ($studio as $data )
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
                                     @endforeach
                                 </select>
-                                @error('id_studio')
+                                @error('studio_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -28,13 +27,25 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nomor Kursi</label>
-                                <input type="text" class="form-control  @error('nk') is-invalid @enderror"
-                                    name="nk">
-                                @error('nk')
+                                <input type="text" class="form-control  @error('nama_kursi') is-invalid @enderror"
+                                    name="nama_kursi">
+                                @error('nama_kursi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                    <select name="status" class="form-control @error('status') is-invalid @enderror">
+                                        <option value="terisi">Terisi</option>
+                                        <option value="kosong">Kosong</option>
+                                    </select>
+                                    @error('status')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">

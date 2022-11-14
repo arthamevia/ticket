@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Jadwal;
 use App\Models\Movies;
 use App\Models\Studio;
+use DB;
 use Illuminate\Http\Request;
 
 

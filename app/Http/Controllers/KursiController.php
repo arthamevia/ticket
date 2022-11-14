@@ -15,9 +15,9 @@ class KursiController extends Controller
      */
     public function index()
     {
-        $kursi = Kursi::all();
-        $studio = Studio::all();
-        return view('kursi.index', compact('kursi', 'studio'));
+        $kursi = Kursi::with('studio')->get();
+        // $studio = Studio::all();
+        return view('kursi.index', compact('kursi'));
     }
 
     /**
@@ -40,13 +40,15 @@ class KursiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_studio' => 'required|unique:studios',
-            'nk' => 'required',
+            'studio_id' => 'required',
+            'nama_kursi' => 'required',
+            'status' => 'required',
         ]);
 
         $kursi = new Kursi();
-        $kursi->id_studio = $request->id_studio;
-        $kursi->nk = $request->nk;
+        $kursi->studio_id = $request->studio_id;
+        $kursi->nama_kursi = $request->nama_kursi;
+        $kursi->status = $request->status;
         $kursi->save();
         return redirect()->route('kursi.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -87,13 +89,15 @@ class KursiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id_studio' => 'required|unique:studios',
-            'nk' => 'required',
+            'studio_id' => 'required|unique:studios',
+            'nama_kursi' => 'required',
+            'status' => 'required',
         ]);
 
         $kursi = Kursi::findOrFail($id);
-        $kursi->id_studio = $request->id_studio;
-        $kursi->nk = $request->nk;
+        $kursi->studio_id = $request->studio_id;
+        $kursi->nama_kursi = $request->nama_kursi;
+        $kursi->status = $request->status;
         $kursi->save();
         return redirect()->route('kursi.index')
             ->with('success', 'Data berhasil dibuat!');

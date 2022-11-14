@@ -13,11 +13,11 @@
                         <form action="{{ route('status.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Id Movie</label>
+                                <label class="form-label">Nama Movies</label>
                                 <select name="movie_id" class="form-control @error('movie_id') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
                                     @endforeach
                                 </select>
                                 @error('movie_id')

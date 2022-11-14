@@ -14,14 +14,36 @@
                             @csrf
                             @method('put')
                             <div class="mb-3">
-                                <label class="form-label">Nomor Kursi</label>
-                                <input type="text" class="form-control  @error('nk') is-invalid @enderror"
-                                    name="nk" value="{{ $kursi->nk }}">
-                                @error('nk')
+                                <label class="form-label">Nama Studio</label>
+                                <input type="text" class="form-control  @error('studio_id') is-invalid @enderror"
+                                    name="studio_id" value="{{ $kursi->studio->nama }}">
+                                @error('studio_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nomor Kursi</label>
+                                <input type="text" class="form-control  @error('nama_kursi') is-invalid @enderror"
+                                    name="nama_kursi" value="{{ $kursi->nama_kursi }}">
+                                @error('nama_kursi')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                    <select name="status" class="form-control @error('status') is-invalid @enderror" >
+                                        <option value="terisi">Terisi</option>
+                                        <option value="kosong">Kosong</option>
+                                    </select>
+                                    @error('status')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">

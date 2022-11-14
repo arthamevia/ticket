@@ -13,20 +13,23 @@
                         <form action="{{ route('studio.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Nama</label>
-                                <input type="text" class="form-control  @error('nama') is-invalid @enderror"
-                                    name="nama">
-                                @error('nama')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <label class="form-label">Nama Studio</label>
+                                    <select name="nama" class="form-control @error('nama') is-invalid @enderror" >
+                                        <option value="Studio 1">Studio 1</option>
+                                        <option value="Studio 2">Studio 2</option>
+                                        <option value="Studio 3">Studio 3</option>
+                                    </select>
+                                    @error('nama')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Jumlah Seat</label>
-                                <input type="number" class="form-control  @error('jumlah_seat') is-invalid @enderror"
-                                    name="jumlah_seat">
-                                @error('jumlah_seat')
+                                <label class="form-label">Jumlah Sheet</label>
+                                <input type="number" class="form-control  @error('jumlah_sheet') is-invalid @enderror"
+                                    name="jumlah_sheet">
+                                @error('jumlah_sheet')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

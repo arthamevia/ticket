@@ -20,8 +20,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Studio</th>
+                                        <th>Nama Studio</th>
                                         <th>Nomor Kursi</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -30,8 +31,16 @@
                                     @foreach ($kursi as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->id_studio }}</td>
-                                            <td>{{ $data->nk }}</td>
+                                            <td>{{ $data->studio->nama }}</td>
+                                            <td>{{ $data->nama_kursi }}</td>
+                                            <td>
+                                            @if ($data->status == 'terisi')
+                                                <div class="badge rounded-pill bg-info w-100">{{ $data->status }}
+                                                </div>
+                                            @elseif ($data->status == 'kosong')
+                                                <div class="badge rounded-pill bg-secondary w-100">{{ $data->status }}</div>
+                                            @endif
+                                            </td>
                                             <td>
                                                 <form action="{{ route('kursi.destroy', $data->id) }}" method="post">
                                                     @csrf

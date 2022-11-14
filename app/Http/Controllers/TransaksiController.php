@@ -70,6 +70,15 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
+        $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
+        if ($jadwal->stok < $transaksis->transaksi->banyak) {
+            return redirect()
+                ->route('transaksi.create')
+                ->with('toast_error', 'Stok Kurang');
+        } else {
+            $jadwal->stok -= $transaksi->transaksi->banyak;
+        }
+        $jadwal->save();
         // $transaksi->qr_code = $qr_code;
         $transaksi->save();
         return redirect()->route('transaksi.index')

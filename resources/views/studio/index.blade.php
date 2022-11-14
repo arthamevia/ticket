@@ -20,7 +20,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Jumlah Seat</th>
+                                        <th>Jumlah Sheet</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -30,7 +30,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->nama }}</td>
-                                            <td>{{ $data->jumlah_seat }}</td>
+                                            <td>{{ $data->jumlah_sheet }}</td>
                                             <td>
                                                 <form action="{{ route('studio.destroy', $data->id) }}" method="post">
                                                     @csrf

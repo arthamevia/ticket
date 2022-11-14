@@ -18,9 +18,10 @@ class CreateKursisTable extends Migration
     {
         Schema::create('kursis', function (Blueprint $table) {
             $table->id();
-            $table->UnsignedBigInteger('id_studio');
-            $table->foreign('id_studio')->references('id')->on('studios')->onDelete('cascade');
-            $table->string('nk');
+            $table->UnsignedBigInteger('studio_id');
+            $table->foreign('studio_id')->references('id')->on('studios')->onDelete('cascade');
+            $table->string('nama_kursi');
+            $table->enum('status', ['terisi', 'kosong'])->default('kosong');
             $table->timestamps();
         });
     }

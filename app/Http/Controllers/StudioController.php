@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Studio;
 use App\Models\Jadwal;
+use DB;
 
 
 class StudioController extends Controller
@@ -41,12 +42,12 @@ class StudioController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required',
-            'jumlah_seat' => 'required',
+            'jumlah_sheet' => 'required',
         ]);
 
         $studio = new Studio();
         $studio->nama = $request->nama;
-        $studio->jumlah_seat = $request->jumlah_seat;
+        $studio->jumlah_sheet = $request->jumlah_sheet;
         $studio->save();
         return redirect()->route('studio.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -88,12 +89,12 @@ class StudioController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required',
-            'jumlah_seat' => 'required',
+            'jumlah_sheet' => 'required',
         ]);
 
         $studio = Studio::findOrFail($id);
         $studio->nama = $request->nama;
-        $studio->jumlah_seat = $request->jumlah_seat;
+        $studio->jumlah_sheet = $request->jumlah_sheet;
         $studio->save();
         return redirect()->route('studio.index')
             ->with('success', 'Data berhasil dibuat!');

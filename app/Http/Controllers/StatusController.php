@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Status;
 use App\Models\Movies;
+use DB;
 
 class StatusController extends Controller
 {
