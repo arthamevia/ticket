@@ -14,10 +14,10 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Id Movie</label>
-                                <select name="id_movie" class="form-control @error('id_movie') is-invalid @enderror"
+                                <select name="id_movie" class="form-select @error('id_movie') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id_movie }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama}}</option>
                                     @endforeach
                                 </select>
                                 @error('id_movie')
@@ -28,10 +28,10 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Id Studio</label>
-                                <select name="id_studio" class="form-control @error('id_studio') is-invalid @enderror"
+                                <select name="id_studio" class="form-select @error('id_studio') is-invalid @enderror"
                                     id="">
                                     @foreach ($studio as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id_studio }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_studio')
