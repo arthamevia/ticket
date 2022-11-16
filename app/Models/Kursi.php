@@ -8,6 +8,7 @@ use App\Models\Kursi;
 use App\Models\Tiket;
 use App\Models\Transaksi;
 use App\Models\Studio;
+use App\Models\Transaksi_Seat;
 
 class Kursi extends Model
 {
@@ -15,7 +16,7 @@ class Kursi extends Model
 
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class);
+    	return $this->belongsToMany(Transaksi::class, 'transaksi_seat');
     }
     public function studio()
     {

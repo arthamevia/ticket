@@ -40,20 +40,20 @@
                         <form action="{{ route('movies.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Nama </label>
-                                <input type="text" class="form-control  @error('nama') is-invalid @enderror"
-                                    name="nama">
-                                @error('nama')
+                                <label class="form-label">Name </label>
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror"
+                                    name="name">
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Decs </label>
-                                <input type="text" class="form-control  @error('decs') is-invalid @enderror"
-                                    name="decs">
-                                @error('decs')
+                                <label class="form-label">Description </label>
+                                <input type="text" class="form-control  @error('desc') is-invalid @enderror"
+                                    name="desc">
+                                @error('desc')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Foto movies</label>
-                                <input type="file" class="form-control  @error('img') is-invalid @enderror"
+                                <input type="file" class="form-select  @error('img') is-invalid @enderror"
                                     name="img">
                                 @error('img')
                                     <span class="invalid-feedback" role="alert">
@@ -70,8 +70,18 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Price </label>
+                                <input type="number" class="form-control  @error('price') is-invalid @enderror"
+                                    name="price">
+                                @error('price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Pilih Data Title</label>
-                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror"
+                                <select name="category_id" class="form-select @error('category_id') is-invalid @enderror"
                                     id="">
                                     @foreach ($category as $data)
                                         <option value="{{ $data->id }}">{{ $data->title }}</option>
@@ -84,20 +94,20 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Directory </label>
-                                <input type="text" class="form-control  @error('directory') is-invalid @enderror"
-                                    name="directory">
-                                @error('directory')
+                                <label class="form-label">Director </label>
+                                <input type="text" class="form-control  @error('director') is-invalid @enderror"
+                                    name="director">
+                                @error('director')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Rilis </label>
-                                <input type="number" class="form-control  @error('rilis') is-invalid @enderror"
-                                    name="rilis">
-                                @error('rilis')
+                                <label class="form-label">Release </label>
+                                <input type="number" class="form-control  @error('release') is-invalid @enderror"
+                                    name="release">
+                                @error('release')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -114,21 +124,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                            <div class="rating-css">
                                 <label class="form-label">Rate </label>
-                                <div class="star-icon">
-                                    <input type="radio" value="1" name="rate" checked id="rating1">
-                                    <label for="rating1" class="fa fa-star"></label>
-                                    <input type="radio" value="2" name="rate" id="rating2">
-                                    <label for="rating2" class="fa fa-star"></label>
-                                    <input type="radio" value="3" name="rate" id="rating3">
-                                    <label for="rating3" class="fa fa-star"></label>
-                                    <input type="radio" value="4" name="rate" id="rating4">
-                                    <label for="rating4" class="fa fa-star"></label>
-                                    <input type="radio" value="5" name="rate" id="rating5">
-                                    <label for="rating5" class="fa fa-star"></label>
-                                </div>
-                            </div>
+                                <input type="number" class="form-control  @error('rate') is-invalid @enderror"
+                                    name="rate">
+                                @error('rate')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">

@@ -18,13 +18,14 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('decs');
+            $table->string('name');
+            $table->string('desc');
             $table->string('img');
+            $table->integer('price');
             $table->UnsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->string('directory');
-            $table->string('rilis');
+            $table->string('director');
+            $table->string('release');
             $table->time('duration');
             $table->integer('rate');
             $table->timestamps();

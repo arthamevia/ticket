@@ -15,22 +15,6 @@ class Category extends Model
     {
         return $this->hasMany(Movies::class);
     }
-    
-    public function title_img_show()
-    {
-        if ($this->title_img && file_exists(public_path('images/category/' . $this->title_img))) {
-            return asset('images/category/' . $this->title_img);
-        } else {
-            return asset('images/no_image.jpg');
-        }
-    }
-    
-    public function deleteTitleImg()
-    {
-        if ($this->title_img && file_exists(public_path('images/category/' . $this->title_img))) {
-            return unlink(public_path('images/category/' . $this->title_img));
-        }
-    }
 }
 
 

@@ -26,7 +26,7 @@ class Movies extends Model
 
     public function status()
     {
-        return $this->belongsTo(Status::class);
+        return $this->hasMany(Status::class);
     }
 
     public function transaksi()

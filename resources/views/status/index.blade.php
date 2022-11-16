@@ -29,7 +29,7 @@
                                     @foreach ($status as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->movies->nama }}</td>
+                                            <td>{{ $data->movies->id }}</td>
                                             <td>{{ $data->jenis }}</td>
                                             <td>
                                                 <form action="{{ route('status.destroy', $data->id) }}" method="post">

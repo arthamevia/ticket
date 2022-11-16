@@ -46,12 +46,13 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>decs</th>
-                                        <th>Img</th>
-                                        <th>Category_id</th>
-                                        <th>Directory</th>
-                                        <th>Rilis</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Category</th>
+                                        <th>Director</th>
+                                        <th>Release</th>
                                         <th>Duration</th>
                                         <th>Rate</th>
                                         <th>Aksi</th>
@@ -62,34 +63,18 @@
                                     @foreach ($movies as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nama }}</td>
-                                            <td>{{ $data->decs }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td>{{ $data->desc }}</td>
                                             <!-- <td>{{ $data->img }} -->
                                             <td><img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
                                                 alt="">
                                             </td>
+                                            <td>Rp {{ $data->price }}</td>
                                             <td>{{ $data->category_id }}</td>
-                                            <td>{{ $data->directory }}</td>
-                                            <td>{{ $data->rilis }}</td>
+                                            <td>{{ $data->director }}</td>
+                                            <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
-                                            <td>
-                                            <div class="rating-css">
-                                                <label class="form-label">Rate </label>
-                                                    <div class="star-icon">
-                                                        <input type="radio" value="1" name="rate" checked id="rating1">
-                                                        <label for="rating1" class="fa fa-star"></label>
-                                                        <input type="radio" value="2" name="rate" id="rating2">
-                                                        <label for="rating2" class="fa fa-star"></label>
-                                                        <input type="radio" value="3" name="rate" id="rating3">
-                                                        <label for="rating3" class="fa fa-star"></label>
-                                                        <input type="radio" value="4" name="rate" id="rating4">
-                                                        <label for="rating4" class="fa fa-star"></label>
-                                                        <input type="radio" value="5" name="rate" id="rating5">
-                                                        <label for="rating5" class="fa fa-star"></label>
-                                                    </div>
-                                                </div>
-                                                </td>
-                                            <td>
+                                            <td>{{ $data->rate }}</td>
                                                 <form action="{{ route('movies.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')

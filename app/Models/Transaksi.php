@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Movies;
 use App\Models\Jadwal;
 use App\Models\Kursi;
+use App\Models\Transaksi_Seat;
 
 class Transaksi extends Model
 {
@@ -31,6 +32,6 @@ class Transaksi extends Model
 
     public function kursi()
     {
-        return $this->belongsTo(Kursi::class);
+    	return $this->belongsToMany(Kursi::class, 'transaksi_seat');
     }
 }

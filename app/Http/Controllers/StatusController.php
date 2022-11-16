@@ -16,7 +16,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $status = Status::all();
+        $status = Status::with('movies')->get();
         return view('status.index', compact('status'));
     }
 

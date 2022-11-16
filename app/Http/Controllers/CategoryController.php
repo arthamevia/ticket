@@ -46,13 +46,6 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->title = $request->title;
-        if ($request->hasFile('title_img')) {
-            $category->deleteTitleImg(); //menghapus title_img sebelum di update melalui method deleteImage di model
-            $image = $request->file('title_img');
-            $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('image/category/', $name);
-            $category->title_img = $name;
-        }
         $category->save();
         return redirect()->route('category.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -93,18 +86,10 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'title_img' => 'required|image|max:2048',
         ]);
 
         $category = Category::findOrFail($id);
         $category->title = $request->title;
-        if ($request->hasFile('title_img')) {
-            $category->deleteImage(); //menghapus title_img sebelum di update melalui method deleteImage di model
-            $title_img = $request->file('title_img');
-            $name = rand(1000, 9999) . $title_img->getClientOriginalName();
-            $title_img->move('image/category/', $name);
-            $category->title_img = $name;
-        }
         $category->save();
         return redirect()->route('category.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -119,7 +104,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
-        $category->deleteTitleImg();
         $category->delete();
         return redirect()->route('category.index')
             ->with('success', 'Data berhasil dihapus!');

@@ -17,7 +17,7 @@
                                 <select name="movie_id" class="form-control @error('movie_id') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('movie_id')
@@ -29,10 +29,10 @@
                             <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select name="jenis" class="form-control @error('jenis') is-invalid @enderror">
-                                <option value="UpComming">Up Comming</option>
-                                <option value="Popular">Popular</option>
-                                <option value="Trending">Trending</option>
-                                <option value="TopRated">Top Rated</option>
+                                <option value="up_comming">Up Comming</option>
+                                <option value="popular">Popular</option>
+                                <option value="trending">Trending</option>
+                                <option value="top_rated">Top Rated</option>
                             </select>
                             @error('jenis')
                                 <span class="invalid-feedback" role="alert">

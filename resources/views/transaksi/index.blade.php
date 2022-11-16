@@ -20,10 +20,10 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode Transaksi</th>
-                                        <th>Id Costumer</th>
-                                        <th>Id Movies</th>
-                                        <th>Id Jadwal</th>
-                                        <th>Id Kursi</th>
+                                        <th>Costumer</th>
+                                        <th>Movies</th>
+                                        <th>Film Tayang</th>
+                                        <th>Kursi</th>
                                         <th>Banyak Pesan</th>
                                         <th>Total Harga</th>
                                         <th>Tanggal Pesan</th>

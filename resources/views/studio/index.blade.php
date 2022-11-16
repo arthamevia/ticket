@@ -20,7 +20,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Jumlah Sheet</th>
+                                        <th>Jumlah Seat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
