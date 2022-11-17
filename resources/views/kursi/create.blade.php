@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <form action="{{ route('kursi.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-label">Nama Studio</label>
                                 <select name="studio_id" class="form-select @error('studio_id') is-invalid @enderror">
                                     @foreach ($studio as $data )
@@ -24,9 +24,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="mb-3">
-                                <label class="form-label">Nomor Kursi</label>
+                                <label class="form-label">Seat Name</label>
                                 <input type="text" class="form-control  @error('nama_kursi') is-invalid @enderror"
                                     name="nama_kursi">
                                 @error('nama_kursi')

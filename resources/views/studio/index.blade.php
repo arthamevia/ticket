@@ -35,10 +35,10 @@
                                                 <form action="{{ route('studio.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('studio.edit', $data->id) }}"
+                                                    <!-- <a href="{{ route('studio.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
-                                                    </a> |
+                                                    </a> | -->
                                                     <!-- <a href="{{ route('studio.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show

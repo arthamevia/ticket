@@ -1,33 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<style>
-    .rating-css div {
-    color: #ffe400;
-    font-size: 10px;
-    font-family: sans-serif;
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 20px 0;
-  }
-  .rating-css input {
-    display: none;
-  }
-  .rating-css input + label {
-    font-size: 10px;
-    text-shadow: 1px 1px 0 #8f8420;
-    cursor: pointer;
-  }
-  .rating-css input:checked + label ~ label {
-    color: #b4afaf;
-  }
-  .rating-css label:active {
-    transform: scale(0.8);
-    transition: 0.3s ease;
-  }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-</style>
     <div class="container" >
         <div class="row justify-content-center">
             <div class="col-md-12 ">
@@ -64,10 +40,48 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->name }}</td>
-                                            <td>{{ $data->desc }}</td>
+
+                                            <td>
+                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show
+                                                </button>
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel{{$data->id}}" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel{{$data->id}}">Description Film</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        {{ $data->desc }}
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <!-- <td>{{ $data->img }} -->
-                                            <td><img src="{{ $data->img_show() }}" style="width: 100px; height:100px;"
+                                            <td>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">Show
+                                                </button>
+                                                <div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Image Film</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <img src="{{ $data->img_show() }}" style="width: 300px; height:300px;"
                                                 alt="">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>Rp {{ $data->price }}</td>
                                             <td>{{ $data->category_id }}</td>
@@ -75,6 +89,7 @@
                                             <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
                                             <td>{{ $data->rate }}</td>
+                                            <td>
                                                 <form action="{{ route('movies.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
@@ -101,4 +116,6 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 @endsection

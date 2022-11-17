@@ -59,7 +59,12 @@
             
             <!-- Sale & Revenue End -->
 
-            @yield('content')
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                @yield('content')
+                </div>
+            </div>
+          
             <!-- Sales Chart Start -->
             
             <!-- Sales Chart End -->

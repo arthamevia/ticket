@@ -13,7 +13,7 @@
                         <form action="{{ route('kursi.update', $kursi->id) }}" method="post">
                             @csrf
                             @method('put')
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-label">Nama Studio</label>
                                 <input type="text" class="form-control  @error('studio_id') is-invalid @enderror"
                                     name="studio_id" value="{{ $kursi->studio->nama }}">
@@ -22,9 +22,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="mb-3">
-                                <label class="form-label">Nomor Kursi</label>
+                                <label class="form-label">Seat Name</label>
                                 <input type="text" class="form-control  @error('nama_kursi') is-invalid @enderror"
                                     name="nama_kursi" value="{{ $kursi->nama_kursi }}">
                                 @error('nama_kursi')

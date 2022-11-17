@@ -10,7 +10,7 @@ class MoviesController extends Controller
 {
     public function index (Request $request) 
     {
-        $movies = Movies::select(['id', 'nama', 'decs', 'img', 'category_id', 'directory', 'rilis', 'duration', 'rate'])->get();
+        $movies = Movies::with(['category'])->get();
         return response()->json($movies);
     }
 

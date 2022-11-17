@@ -14,7 +14,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Nama Studio</label>
-                                    <select name="nama" class="form-control @error('nama') is-invalid @enderror" >
+                                    <select name="nama" class="form-select @error('nama') is-invalid @enderror" >
                                         <option value="Studio 1">Studio 1</option>
                                         <option value="Studio 2">Studio 2</option>
                                         <option value="Studio 3">Studio 3</option>
@@ -26,7 +26,7 @@
                                     @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Jumlah Sheet</label>
+                                <label class="form-label">Jumlah Seat</label>
                                 <input type="number" class="form-control  @error('jumlah_sheet') is-invalid @enderror"
                                     name="jumlah_sheet">
                                 @error('jumlah_sheet')
