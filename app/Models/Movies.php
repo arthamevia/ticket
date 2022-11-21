@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Movies;
 use App\Models\Jadwal;
-use App\Models\Status;
 use App\Models\Transaksi;
 
 class Movies extends Model
@@ -21,12 +20,7 @@ class Movies extends Model
 
     public function jadwal()
     {
-        return $this->hasMany(Jadwal::class);
-    }
-
-    public function status()
-    {
-        return $this->hasMany(Status::class);
+        return $this->hasMany(Jadwal::class, 'id_movie');
     }
 
     public function transaksi()

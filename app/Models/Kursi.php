@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Kursi;
 use App\Models\Tiket;
 use App\Models\Transaksi;
-use App\Models\Studio;
+
 use App\Models\Transaksi_Seat;
 
 class Kursi extends Model
@@ -18,9 +18,8 @@ class Kursi extends Model
     {
     	return $this->belongsToMany(Transaksi::class, 'transaksi_seat');
     }
-    public function studio()
+    public function jadwal()
     {
-        return $this->belongsTo(Studio::class);
+    	return $this->belongsToMany(Jadwal::class, 'id_kursi');
     }
-
 }

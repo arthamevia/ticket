@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\StudioController;
 use App\Http\Controllers\Api\KursiController;
 use App\Http\Controllers\Api\JadwalController;
+use App\Http\Controllers\Api\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,13 @@ Route::post('Jadwal/create', [JadwalController::class, 'store']);
 Route::get('Jadwal/{id}', [JadwalController::class, 'show']);
 Route::put('Jadwal/{id}/edit', [JadwalController::class, 'update']);
 Route::delete('Jadwal/{id}'  , [JadwalController::class, 'destroy']);
+
+// Jadwal
+Route::get('Transaksi', [TransaksiController::class,'index']);
+Route::post('Transaksi/create', [TransaksiController::class, 'store']);
+Route::get('Transaksi/{id}', [TransaksiController::class, 'show']);
+Route::put('Transaksi/{id}/edit', [TransaksiController::class, 'update']);
+Route::delete('Transaksi/{id}'  , [TransaksiController::class, 'destroy']);
 
 // Authentikasi
 

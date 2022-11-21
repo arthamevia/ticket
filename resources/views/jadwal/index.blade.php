@@ -20,8 +20,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Movies</th>
-                                        <th>Id Studio</th>
+                                        <th>Movies</th>
+                                        <th>Kursi</th>
                                         <th>Harga</th>
                                         <th>Stok</th>
                                         <th>Tanggal Tayang</th>
@@ -35,8 +35,8 @@
                                     @foreach ($jadwal as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->id_movie }}</td>
-                                            <td>{{ $data->id_studio }}</td>
+                                            <td>{{ $data->movies->name }}</td>
+                                            <td>{{ $data->kursi->nama_kursi }}</td>
                                             <td>{{ $data->harga }}</td>
                                             <td>{{ $data->stok }}</td>
                                             <td>{{ $data->tgl }}</td>

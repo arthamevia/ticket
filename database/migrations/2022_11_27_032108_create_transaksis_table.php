@@ -20,7 +20,7 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode_transaksi');
+            $table->string('kode_transaksi');
             $table->UnsignedBigInteger('id_costumer');
             $table->foreign('id_costumer')->references('id')->on('users')->onDelete('cascade');
             $table->UnsignedBigInteger('id_movie');
@@ -32,7 +32,6 @@ class CreateTransaksisTable extends Migration
             $table->integer('banyak');
             $table->integer('total_harga');
             $table->date('tgl_psn');
-            $table->string('qr_code');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kursi;
-use App\Models\Studio;
+
 
 class KursiController extends Controller
 {
@@ -15,7 +15,7 @@ class KursiController extends Controller
      */
     public function index()
     {
-        $kursi = Kursi::with('studio')->get();
+        $kursi = Kursi::all();
         // $studio = Studio::all();
         return view('kursi.index', compact('kursi'));
     }
@@ -27,8 +27,7 @@ class KursiController extends Controller
      */
     public function create()
     {
-        $studio = Studio::all();
-        return view('kursi.create', compact('studio'));
+        return view('kursi.create');
     }
 
     /**
@@ -40,13 +39,11 @@ class KursiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'studio_id' => 'required',
             'nama_kursi' => 'required',
             'status' => 'required',
         ]);
 
         $kursi = new Kursi();
-        $kursi->studio_id = $request->studio_id;
         $kursi->nama_kursi = $request->nama_kursi;
         $kursi->status = $request->status;
         $kursi->save();
@@ -75,8 +72,7 @@ class KursiController extends Controller
     public function edit($id)
     {
         $kursi = Kursi::findOrFail($id);
-        $studio = Studio::all();
-        return view('kursi.edit', compact('kursi', 'studio'));
+        return view('kursi.edit', compact('kursi'));
     }
 
     /**
@@ -89,13 +85,11 @@ class KursiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'studio_id' => 'required|unique:studios',
             'nama_kursi' => 'required',
             'status' => 'required',
         ]);
 
         $kursi = Kursi::findOrFail($id);
-        $kursi->studio_id = $request->studio_id;
         $kursi->nama_kursi = $request->nama_kursi;
         $kursi->status = $request->status;
         $kursi->save();

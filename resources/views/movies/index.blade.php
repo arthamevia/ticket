@@ -26,6 +26,7 @@
                                         <th>Description</th>
                                         <th>Image</th>
                                         <th>Price</th>
+                                        <th>Klasifikasi</th>
                                         <th>Category</th>
                                         <th>Director</th>
                                         <th>Release</th>
@@ -42,13 +43,13 @@
                                             <td>{{ $data->name }}</td>
 
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show
+                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">Show
                                                 </button>
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel{{$data->id}}" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel{{$data->id}}">Description Film</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Description Film</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -63,9 +64,9 @@
                                             </td>
                                             <!-- <td>{{ $data->img }} -->
                                             <td>
-                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">Show
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2{{$data->id}}">Show
                                                 </button>
-                                                <div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal2{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                         <div class="modal-header">
@@ -83,9 +84,10 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>Rp {{ $data->price }}</td>
+                                            <td>Rp {{ number_format($data->price, 0, ',', '.') }}</td>
+                                            <td>{{ $data->klasifikasi }}</td>
                                             <td>{{ $data->category_id }}</td>
-                                            <td>{{ $data->director }}</td>
+                                            <td>{{ $data->director }}</td> 
                                             <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
                                             <td>{{ $data->rate }}</td>

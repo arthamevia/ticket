@@ -53,6 +53,20 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                            <label class="form-label">Klasifikasi</label>
+                            <select name="klasifikasi" class="form-control @error('klasifikasi') is-invalid @enderror">
+                                <option value="Up Comming">Up Comming</option>
+                                <option value="Popular">Popular</option>
+                                <option value="Trending">Trending</option>
+                                <option value="Top Rated">Top Rated</option>
+                            </select>
+                            @error('klasifikasi')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                            <div class="mb-3">
                                 <label class="form-label">Pilih Data Title</label>
                                 <select name="category_id" class="form-select @error('category_id') is-invalid @enderror"
                                     id="">

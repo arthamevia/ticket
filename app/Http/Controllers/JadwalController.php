@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Jadwal;
 use App\Models\Movies;
-use App\Models\Studio;
+use App\Models\Kursi;
 use DB;
 use Illuminate\Http\Request;
 
@@ -19,8 +19,9 @@ class JadwalController extends Controller
     {
         // $jadwal = Jadwal::with('tiket','movies')->get();
         $jadwal = Jadwal::all();
-        $studio = Studio::all();
-        return view('jadwal.index', compact('jadwal', 'studio'));
+        $kursi = Kursi::all();
+        // $stok = Jadwal::where('jadwal')->count();
+        return view('jadwal.index', compact('jadwal', 'kursi'));
     }
 
     /**
@@ -31,8 +32,8 @@ class JadwalController extends Controller
     public function create()
     {
         $movies = Movies::all();
-        $studio = Studio::all();
-        return view('jadwal.create', compact('movies','studio'));
+        $kursi = Kursi::all();
+        return view('jadwal.create', compact('movies','kursi'));
     }
 
     /**
@@ -45,7 +46,7 @@ class JadwalController extends Controller
     {
         $validated = $request->validate([
             'id_movie' => 'required|unique:movies',
-            'id_studio' => 'required|unique:studios',
+            'id_kursi' => 'required|unique:kursis',
             'harga' => 'required',
             'stok' => 'required',
             'tgl' => 'required',
@@ -56,7 +57,7 @@ class JadwalController extends Controller
 
         $jadwal = new Jadwal();
         $jadwal->id_movie = $request->id_movie;
-        $jadwal->id_studio = $request->id_studio;
+        $jadwal->id_kursi = $request->id_kursi;
         $jadwal->harga = $request->harga;
         $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
@@ -104,14 +105,20 @@ class JadwalController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama' => 'required',
+            'id_movie' => 'required|unique:movies',
+            'id_kursis' => 'required|unique:kursis',
+            'harga' => 'required',
+            'stok' => 'required',
             'tgl' => 'required',
             'tayang' => 'required',
             'selesai' => 'required',
         ]);
 
         $jadwal = Jadwal::findOrFail($id);
-        $jadwal->nama = $request->nama;
+        $jadwal->id_movie = $request->id_movie;
+        $jadwal->id_kursi = $request->id_kursi;
+        $jadwal->harga = $request->harga;
+        $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
         $jadwal->selesai = $request->selesai;

@@ -13,7 +13,7 @@ class JadwalController extends Controller
 {
     public function index (Request $request) 
     {
-        $jadwal = Jadwal::select(['id', 'id_movie', 'id_studio', 'harga', 'stok', 'tg', 'tayang', 'selesai'])->get();
+        $jadwal = Jadwal::with(['movies'])->get();
         return response()->json($jadwal);
     }
 

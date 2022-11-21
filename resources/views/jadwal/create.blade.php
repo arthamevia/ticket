@@ -13,11 +13,11 @@
                         <form action="{{ route('jadwal.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Id Movie</label>
+                                <label class="form-label">Movie</label>
                                 <select name="id_movie" class="form-select @error('id_movie') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama}}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('id_movie')
@@ -27,14 +27,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Id Studio</label>
-                                <select name="id_studio" class="form-select @error('id_studio') is-invalid @enderror"
+                                <label class="form-label">Kursi</label>
+                                <select name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
                                     id="">
-                                    @foreach ($studio as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                    @foreach ($kursi as $data)
+                                        <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
                                     @endforeach
                                 </select>
-                                @error('id_studio')
+                                @error('id_kursi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

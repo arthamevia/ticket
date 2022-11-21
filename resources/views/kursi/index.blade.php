@@ -30,7 +30,7 @@
                                     @foreach ($kursi as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <!-- <td>{{ $data->studio->nama }}</td> -->
+                                            
                                             <td>{{ $data->nama_kursi }}</td>
                                             <td>
                                             @if ($data->status == 'terisi')

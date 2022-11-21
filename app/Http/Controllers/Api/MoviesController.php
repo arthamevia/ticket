@@ -18,18 +18,19 @@ class MoviesController extends Controller
     {
         //validasi
         $validated = $request->validate([
-            'nama' => 'required',
-            'decs' => 'required',
+            'name' => 'required',
+            'desc' => 'required',
             'img' => 'required|image|max:2048',
+            'price' => 'required',
             'category_id' => 'required|unique:categories',
-            'directory' => 'required',
-            'rilis' => 'required',
+            'director' => 'required',
+            'release' => 'required',
             'duration' => 'required',
             'rate' => 'required',
         ]);
 
         $movies = new Movies();
-        $movies->nama = $request->nama;
+        $movies->name = $request->name;
         $movies->save();
 
         return response()->json([
@@ -51,13 +52,13 @@ class MoviesController extends Controller
     {
         $movies = Movies::findOrFail($id);
 
-        if ($request->nama != $movies->nama) {
-            $rules['nama'] = 'required|unique:movies';
+        if ($request->name != $movies->name) {
+            $rules['name'] = 'required|unique:movies';
         }
 
         $validasiData = $request->validate($rules);
-        $movies->nama = $request->nama;
-        $movies->decs = $request->decs;
+        $movies->name = $request->name;
+        $movies->desc = $request->desc;
         
         if ($request->hasFile('img')) {
             $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
@@ -66,9 +67,10 @@ class MoviesController extends Controller
             $image->move('images/movies/', $name);
             $movies->img = $name;
         }
+        $movies->price = $request->price;
         $movies->category_id = $request->category_id;
-        $movies->directory = $request->directory;
-        $movies->rilis = $request->rilis;
+        $movies->director = $request->director;
+        $movies->release = $request->release;
         $movies->duration = $request->duration;
         $movies->rate = $request->rate;
         $movies->save();

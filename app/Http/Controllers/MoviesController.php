@@ -50,6 +50,7 @@ class MoviesController extends Controller
             // 'img' => 'required|image|max:2048',
             // 'category_id' => 'required|unique:categories',
             'price' => 'required',
+            'klasifikasi' => 'required',
             'director' => 'required',
             'release' => 'required',
             'duration' => 'required',
@@ -68,6 +69,7 @@ class MoviesController extends Controller
             $movies->img = $name;
         }
         $movies->price = $request->price;
+        $movies->klasifikasi = $request->klasifikasi;
         $movies->category_id = $request->category_id;
         $movies->director = $request->director;
         $movies->release = $request->release;
@@ -118,7 +120,7 @@ class MoviesController extends Controller
             'desc' => 'required',
             'img' => 'required|image|max:2048',
             'price' => 'required',
-            'category_id' => 'required|unique:categories',
+            'klasifikasi' => 'required',
             'director' => 'required',
             'release' => 'required',
             'duration' => 'required',
@@ -137,7 +139,7 @@ class MoviesController extends Controller
             $movies->img = $name;
         }
         $movies->price = $request->price;
-        $movies->category_id = $request->category_id;
+        $movies->klasifikasi = $request->klasifikasi;
         $movies->director = $request->director;
         $movies->release = $request->release;
         $movies->duration = $request->duration;

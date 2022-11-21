@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Jadwal;
 use App\Models\Movies;
-use App\Models\Studio;
 
 
 class CreateJadwalsTable extends Migration
@@ -21,8 +20,8 @@ class CreateJadwalsTable extends Migration
             $table->id();
             $table->UnsignedBigInteger('id_movie');
             $table->foreign('id_movie')->references('id')->on('movies')->onDelete('cascade');
-            $table->UnsignedBigInteger('id_studio');
-            $table->foreign('id_studio')->references('id')->on('studios')->onDelete('cascade');
+            $table->UnsignedBigInteger('id_kursi');
+            $table->foreign('id_kursi')->references('id')->on('kursis')->onDelete('cascade');
             $table->integer('harga');
             $table->integer('stok');
             $table->date('tgl');

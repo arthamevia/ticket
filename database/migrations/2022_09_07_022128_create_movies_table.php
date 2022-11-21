@@ -19,9 +19,10 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('desc');
+            $table->text('desc');
             $table->string('img');
             $table->integer('price');
+            $table->enum('klasifikasi', ['Up Comming', 'Popular', 'Trending', 'Top Rated']);
             $table->UnsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('director');
@@ -29,7 +30,6 @@ class CreateMoviesTable extends Migration
             $table->time('duration');
             $table->integer('rate');
             $table->timestamps();
-
                     
         });
     }

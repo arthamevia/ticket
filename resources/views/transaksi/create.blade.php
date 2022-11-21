@@ -13,17 +13,7 @@
                         <form action="{{ route('transaksi.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Kode Transaksi </label>
-                                <input type="text" class="form-control  @error('kode_transaksi') is-invalid @enderror"
-                                    name="kode_transaksi">
-                                @error('kode_transaksi')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Id Costumer</label>
+                                <label class="form-label">Costumer</label>
                                 <select name="id_costumer" class="form-control @error('id_costumer') is-invalid @enderror"
                                     id="">
                                     @foreach ($user as $data)
@@ -37,11 +27,11 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Id Movies</label>
+                                <label class="form-label">Movies</label>
                                 <select name="id_movie" class="form-control @error('id_movie') is-invalid @enderror"
                                     id="">
                                     @foreach ($movies as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_movie')
@@ -51,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Id Jadwal</label>
+                                <label class="form-label">Jadwal</label>
                                 <select name="id_jadwal" class="form-control @error('id_jadwal') is-invalid @enderror"
                                     id="">
                                     @foreach ($jadwal as $data)
@@ -65,11 +55,11 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Id Kursi</label>
+                                <label class="form-label">Kursi</label>
                                 <select name="id_kursi" class="form-control @error('id_kursi') is-invalid @enderror"
                                     id="">
                                     @foreach ($kursi as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_kursi')

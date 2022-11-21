@@ -32,6 +32,7 @@
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
+                                    @if (count($transaksi))
                                     @foreach ($transaksi as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
@@ -41,7 +42,7 @@
                                             <td>{{ $data->id_jadwal }}</td>
                                             <td>{{ $data->id_kursi }}</td>
                                             <td>{{ $data->banyak }}</td>
-                                            <td>Rp {{ $data->total_harga }}</td>
+                                            <td>RP. {{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>{{ $data->tgl_psn }}</td>
                                             <td>
                                                 <form action="{{ route('transaksi.destroy', $data->id) }}" method="post">
@@ -50,11 +51,7 @@
                                                     <a href="{{ route('transaksi.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
-                                                    </a> |
-                                                    <a href="{{ route('transaksi.show', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-warning">
-                                                        Show
-                                                    </a> |
+                                                    </a>|
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>
@@ -62,6 +59,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

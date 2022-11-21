@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="container" >
         <div class="row justify-content-center">
             <div class="col-md-12 ">
@@ -29,7 +30,7 @@
                                     @foreach ($status as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->movies->id }}</td>
+                                            <td>{{ $data->movies->name }}</td>
                                             <td>{{ $data->jenis }}</td>
                                             <td>
                                                 <form action="{{ route('status.destroy', $data->id) }}" method="post">

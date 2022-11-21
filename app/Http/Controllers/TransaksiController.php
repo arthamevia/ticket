@@ -62,7 +62,16 @@ class TransaksiController extends Controller
         ]);
 
         $transaksi = new Transaksi();
-        $transaksi->kode_transaksi = $request->kode_transaksi;
+        $kode_transaksis = DB::table('transaksis')->select(DB::raw('MAX(RIGHT(kode_transaksi,3)) as kode'));
+        if ($kode_transaksis->count() > 0) {
+            foreach ($kode_transaksis->get() as $kode_transaksi) {
+                $x = ((int) $kode_transaksi->kode) + 1;
+                $kode = sprintf('%03s', $x);
+            }
+        } else {
+            $kode = '001';
+        }
+        $transaksi->kode_transaksi = 'GNQ-' . date('dmy') . $kode;
         $transaksi->id_costumer = $request->id_costumer;
         $transaksi->id_movie = $request->id_movie;
         $transaksi->id_jadwal = $request->id_jadwal;
@@ -125,9 +134,9 @@ class TransaksiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'kode_transaksi' => 'required',
+    {  
+        $transaksi = Transaksi::findOrFail($id);
+        $rules = [
             'id_costumer' => 'required|unique:users',
             'id_movie' => 'required|unique:movies',
             'id_jadwal' => 'required|unique:jadwals',
@@ -135,9 +144,13 @@ class TransaksiController extends Controller
             'banyak' => 'required',
             'total_harga' => 'required',
             'tgl_psn' => 'required',
-        ]);
+        ];
 
-        $transaksi = Transaksi::findOrFail($id);
+        if ($request->kode_transaksi != $transaksi->kode_transaksi) {
+            $rules['kode_transaksi'] = 'unique:transaksis';
+        }
+        $validasiData = $request->validate($rules);
+
         $transaksi->kode_transaksi = $request->kode_transaksi;
         $transaksi->id_costumer = $request->id_costumer;
         $transaksi->id_movie = $request->id_movie;
