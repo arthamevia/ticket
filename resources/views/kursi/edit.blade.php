@@ -13,16 +13,6 @@
                         <form action="{{ route('kursi.update', $kursi->id) }}" method="post">
                             @csrf
                             @method('put')
-                            <!-- <div class="mb-3">
-                                <label class="form-label">Nama Studio</label>
-                                <input type="text" class="form-control  @error('studio_id') is-invalid @enderror"
-                                    name="studio_id" value="{{ $kursi->studio->nama }}">
-                                @error('studio_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> -->
                             <div class="mb-3">
                                 <label class="form-label">Seat Name</label>
                                 <input type="text" class="form-control  @error('nama_kursi') is-invalid @enderror"

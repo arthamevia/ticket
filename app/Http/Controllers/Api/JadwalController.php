@@ -22,7 +22,7 @@ class JadwalController extends Controller
         //validasi
         $validated = $request->validate([
             'id_movie' => 'required|unique:movies',
-            'id_studio' => 'required|unique:studios',
+            'id_kursi' => 'required|unique:kursis',
             'harga' => 'required',
             'stok' => 'required',
             'tgl' => 'required',
@@ -32,7 +32,7 @@ class JadwalController extends Controller
 
         $jadwal = new Jadwal();
         $jadwal->id_movie = $request->id_movie;
-        $jadwal->id_studio = $request->id_studio;
+        $jadwal->id_kursi = $request->id_kursi;
         $jadwal->harga = $request->harga;
         $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
@@ -65,7 +65,7 @@ class JadwalController extends Controller
 
         $validasiData = $request->validate($rules);
         $jadwal->id_movie = $request->id_movie;
-        $jadwal->id_studio = $request->id_studio;
+        $jadwal->id_kursi = $request->id_kursi;
         $jadwal->harga = $request->harga;
         $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;

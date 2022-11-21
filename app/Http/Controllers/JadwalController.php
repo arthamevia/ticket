@@ -106,7 +106,7 @@ class JadwalController extends Controller
     {
         $validated = $request->validate([
             'id_movie' => 'required|unique:movies',
-            'id_kursis' => 'required|unique:kursis',
+            'id_kursi' => 'required|unique:kursis',
             'harga' => 'required',
             'stok' => 'required',
             'tgl' => 'required',
