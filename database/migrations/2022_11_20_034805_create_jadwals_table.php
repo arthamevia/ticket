@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Jadwal;
 use App\Models\Movies;
-
+use App\Models\Kursi;
 
 class CreateJadwalsTable extends Migration
 {

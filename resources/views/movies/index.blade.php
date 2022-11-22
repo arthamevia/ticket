@@ -4,7 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <div class="container" >
+    <div class="container-fluid" >
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 @include('layouts/_flash')
@@ -74,8 +74,7 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                        <img src="{{ $data->img_show() }}" style="width: 300px; height:300px;"
-                                                alt="">
+                                                        <center><img src="{{ $data->img_show() }}" style="width: 300px; height:300px;"alt=""></center>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
@@ -86,7 +85,7 @@
                                             </td>
                                             <td>Rp {{ number_format($data->price, 0, ',', '.') }}</td>
                                             <td>{{ $data->klasifikasi }}</td>
-                                            <td>{{ $data->category_id }}</td>
+                                            <td>{{ $data->category->title }}</td>
                                             <td>{{ $data->director }}</td> 
                                             <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
@@ -99,10 +98,6 @@
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <!-- <a href="{{ route('movies.show', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-warning">
-                                                        Show
-                                                    </a> | -->
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>

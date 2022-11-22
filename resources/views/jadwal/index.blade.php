@@ -50,10 +50,7 @@
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('jadwal.show', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-warning">
-                                                        Show
-                                                    </a> |
+                                                    
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>

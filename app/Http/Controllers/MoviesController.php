@@ -62,7 +62,7 @@ class MoviesController extends Controller
         $movies->desc = $request->desc;
         
         if ($request->hasFile('img')) {
-            $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImage di model
+            $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImg di model
             $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
@@ -132,7 +132,7 @@ class MoviesController extends Controller
         $movies->desc = $request->desc;
         
         if ($request->hasFile('img')) {
-            $movies->deleteImage(); //menghapus foto sebelum di update melalui method deleteImage di model
+            $movies->deleteImg(); //menghapus foto sebelum di update melalui method deleteImg di model
             $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
@@ -140,6 +140,7 @@ class MoviesController extends Controller
         }
         $movies->price = $request->price;
         $movies->klasifikasi = $request->klasifikasi;
+        $movies->category_id = $request->category_id;
         $movies->director = $request->director;
         $movies->release = $request->release;
         $movies->duration = $request->duration;

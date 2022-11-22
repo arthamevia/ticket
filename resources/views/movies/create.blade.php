@@ -112,7 +112,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Rate </label>
-                                <input type="number" class="form-control  @error('rate') is-invalid @enderror"
+                                <input type="number" min="1" max="5" class="form-control  @error('rate') is-invalid @enderror"
                                     name="rate">
                                 @error('rate')
                                     <span class="invalid-feedback" role="alert">

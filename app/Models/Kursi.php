@@ -20,6 +20,6 @@ class Kursi extends Model
     }
     public function jadwal()
     {
-    	return $this->belongsToMany(Jadwal::class, 'id_kursi');
+    	return $this->hasMany(Jadwal::class, 'id_kursi');
     }
 }

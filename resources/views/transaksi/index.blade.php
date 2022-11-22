@@ -37,12 +37,12 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->kode_transaksi }}</td>
-                                            <td>{{ $data->id_costumer }}</td>
-                                            <td>{{ $data->id_movie }}</td>
-                                            <td>{{ $data->id_jadwal }}</td>
-                                            <td>{{ $data->id_kursi }}</td>
+                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->movies->name }}</td>
+                                            <td>{{ $data->jadwal->id_jadwal }}</td>
+                                            <td>{{ $data->kursi->nama_kursi }}</td>
                                             <td>{{ $data->banyak }}</td>
-                                            <td>RP. {{ number_format($data->total_harga, 0, ',', '.') }}</td>
+                                            <td>Rp {{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>{{ $data->tgl_psn }}</td>
                                             <td>
                                                 <form action="{{ route('transaksi.destroy', $data->id) }}" method="post">

@@ -45,20 +45,15 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        // $qr_code = Str::random(20);
         $validated = $request->validate([
             'kode_transaksi' => 'required',
-            'id_costumer' => 'required|unique:users',
-            'id_movie' => 'required|unique:movies',
-            'id_jadwal' => 'required|unique:jadwals',
-            'id_kursi' => 'required|unique:kursis',
+            'id_costumer' => 'required',
+            'id_movie' => 'required',
+            'id_jadwal' => 'required',
+            'id_kursi' => 'required',
             'banyak' => 'required',
-            // 'title_img' => 'required|image|max:2048',
-            // 'img' => 'required|image|max:2048',
-            // 'category_id' => 'required|unique:categories',
             'total_harga' => 'required',
             'tgl_psn' => 'required',
-            // 'qr_code' => $qr_code,
         ]);
 
         $transaksi = new Transaksi();
@@ -79,15 +74,15 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
-        $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
-        if ($jadwal->stok < $transaksis->transaksi->banyak) {
-            return redirect()
-                ->route('transaksi.create')
-                ->with('toast_error', 'Stok Kurang');
-        } else {
-            $jadwal->stok -= $transaksi->transaksi->banyak;
-        }
-        $jadwal->save();
+        // $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
+        // if ($jadwal->stok < $transaksis->transaksi->banyak) {
+        //     return redirect()
+        //         ->route('transaksi.create')
+        //         ->with('toast_error', 'Stok Kurang');
+        // } else {
+        //     $jadwal->stok -= $transaksi->transaksi->banyak;
+        // }
+        // $jadwal->save();
         // $transaksi->qr_code = $qr_code;
         $transaksi->save();
         return redirect()->route('transaksi.index')

@@ -22,8 +22,9 @@ class Jadwal extends Model
     {
         return $this->belongsTo(Movies::class, 'id_movie');
     }
+    
     public function kursi()
     {
-        return $this->hasmany(Kursi::class, 'id_kursi');
+        return $this->belongsTo(Kursi::class, 'id_kursi');
     }
 }

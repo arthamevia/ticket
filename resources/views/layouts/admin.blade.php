@@ -29,6 +29,10 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
 </head>
 
 <body>
@@ -104,6 +108,15 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('js/main.js')}}"></script>
+
+    <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
 </body>
 
 </html>

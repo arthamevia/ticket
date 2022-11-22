@@ -17,11 +17,8 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        // $jadwal = Jadwal::with('tiket','movies')->get();
-        $jadwal = Jadwal::all();
-        $kursi = Kursi::all();
-        // $stok = Jadwal::where('jadwal')->count();
-        return view('jadwal.index', compact('jadwal', 'kursi'));
+        $jadwal = Jadwal::with('movies','kursi')->get();
+        return view('jadwal.index', compact('jadwal'));
     }
 
     /**
@@ -45,8 +42,8 @@ class JadwalController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_movie' => 'required|unique:movies',
-            'id_kursi' => 'required|unique:kursis',
+            'id_movie' => 'required',
+            'id_kursi' => 'required',
             'harga' => 'required',
             'stok' => 'required',
             'tgl' => 'required',
