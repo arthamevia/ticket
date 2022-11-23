@@ -9,6 +9,9 @@ use App\Http\Controllers\Api\StudioController;
 use App\Http\Controllers\Api\KursiController;
 use App\Http\Controllers\Api\JadwalController;
 use App\Http\Controllers\Api\TransaksiController;
+use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,9 +74,12 @@ Route::delete('Transaksi/{id}'  , [TransaksiController::class, 'destroy']);
 
 // Authentikasi
 
-// Route::post('/register', RegisterController::class)->name('register');
-// Route::post('/login', LoginController::class)->name('login');
-// Route::post('/logout', LogoutController::class)->name('logout');
+Route::post('/register', RegisterController::class)->name('register');
+Route::post('/login', LoginController::class)->name('login');
+Route::post('/logout', LogoutController::class)->name('logout');
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 // category
 
