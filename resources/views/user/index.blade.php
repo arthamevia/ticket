@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <div class="card shadow-lg rounded card">
+    <div class="crow justify-content-center card-header col-md-12 ">
         
         <div class="table-responsive text-nowrap">
             <div class="container">

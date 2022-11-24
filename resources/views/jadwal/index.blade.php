@@ -37,7 +37,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->movies->name }}</td>
                                             <td>{{ $data->kursi->nama_kursi }}</td>
-                                            <td>{{ $data->harga }}</td>
+                                            <td>Rp {{ number_format($data->harga, 0, ',', '.') }}</td>
                                             <td>{{ $data->stok }}</td>
                                             <td>{{ $data->tgl }}</td>
                                             <td>{{ $data->tayang }}</td>

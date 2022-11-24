@@ -90,15 +90,15 @@
                                             <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
                                             <td>{{ $data->rate }}</td>
-                                            <td>
-                                                <form action="{{ route('movies.destroy', $data->id) }}" method="post">
+                                            <td data-label="" width="300" style="overflow: hidden;">
+                                                <form class="row"style="width: 135px;" action="{{ route('movies.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="{{ route('movies.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                    <button  type="submit" class="btn btn-sm btn-outline-danger "
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>
                                                 </form>

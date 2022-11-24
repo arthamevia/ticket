@@ -12,6 +12,9 @@ use App\Http\Controllers\Api\TransaksiController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
+use App\Http\Controllers\Api\Auth\PasswordResetRequestController;
+use App\Http\Controllers\Api\Auth\ChangePasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,18 +27,20 @@ use App\Http\Controllers\Api\Auth\LogoutController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+// Authentikasi
+
+Route::post('/register', RegisterController::class)->name('register');
+Route::post('/login', LoginController::class)->name('login');
+Route::post('/logout', LogoutController::class)->name('logout');
+Route::post('sendPasswordResetLink', [PasswordResetRequestController::class, 'sendEmail']);
+Route::post('resetPassword', [ChangePasswordController::class, 'passwordresetProcess']);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 // Route::get('test', [TestingController::class,'test']);
-
-// movie
-Route::get('Movies', [MoviesController::class,'index']);
-Route::post('Movies/create', [MoviesController::class, 'store']);
-Route::get('Movies/{id}', [MoviesController::class, 'show']);
-Route::put('Movies/{id}/edit', [MoviesController::class, 'update']);
-Route::delete('Movies/{id}', [MoviesController::class, 'destroy']);
 
 // category
 Route::get('Category', [CategoryController::class,'index']);
@@ -43,13 +48,20 @@ Route::post('Category/create', [CategoryController::class, 'store']);
 Route::get('Category/{id}', [CategoryController::class, 'show']);
 Route::put('Category/{id}/edit', [CategoryController::class, 'update']);
 Route::delete('Category/{id}', [CategoryController::class, 'destroy']);
+// movie
+Route::get('Movies', [MoviesController::class,'index']);
+Route::post('Movies/create', [MoviesController::class, 'store']);
+Route::get('Movies/{id}', [MoviesController::class, 'show']);
+Route::put('Movies/{id}/edit', [MoviesController::class, 'update']);
+Route::delete('Movies/{id}', [MoviesController::class, 'destroy']);
+
 
 // Studio
-Route::get('Studio', [StudioController::class,'index']);
-Route::post('Studio/create', [StudioController::class, 'store']);
-Route::get('Studio/{id}', [StudioController::class, 'show']);
-Route::put('Studio/{id}/edit', [StudioController::class, 'update']);
-Route::delete('Studio/{id}', [StudioController::class, 'destroy']);
+// Route::get('Studio', [StudioController::class,'index']);
+// Route::post('Studio/create', [StudioController::class, 'store']);
+// Route::get('Studio/{id}', [StudioController::class, 'show']);
+// Route::put('Studio/{id}/edit', [StudioController::class, 'update']);
+// Route::delete('Studio/{id}', [StudioController::class, 'destroy']);
 
 // Studio
 Route::get('Kursi', [KursiController::class,'index']);
@@ -72,14 +84,7 @@ Route::get('Transaksi/{id}', [TransaksiController::class, 'show']);
 Route::put('Transaksi/{id}/edit', [TransaksiController::class, 'update']);
 Route::delete('Transaksi/{id}'  , [TransaksiController::class, 'destroy']);
 
-// Authentikasi
 
-Route::post('/register', RegisterController::class)->name('register');
-Route::post('/login', LoginController::class)->name('login');
-Route::post('/logout', LogoutController::class)->name('logout');
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 // category
 

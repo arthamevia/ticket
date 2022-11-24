@@ -57,9 +57,9 @@ class TransaksiController extends Controller
         ]);
 
         $transaksi = new Transaksi();
-        $kode_transaksis = DB::table('transaksis')->select(DB::raw('MAX(RIGHT(kode_transaksi,3)) as kode'));
-        if ($kode_transaksis->count() > 0) {
-            foreach ($kode_transaksis->get() as $kode_transaksi) {
+        $kode_transaksi = DB::table('transaksi')->select(DB::raw('MAX(RIGHT(kode_transaksi,3)) as kode'));
+        if ($kode_transaksi->count() > 0) {
+            foreach ($kode_transaksi->get() as $kode_transaksi) {
                 $x = ((int) $kode_transaksi->kode) + 1;
                 $kode = sprintf('%03s', $x);
             }
@@ -74,16 +74,7 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
-        // $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
-        // if ($jadwal->stok < $transaksis->transaksi->banyak) {
-        //     return redirect()
-        //         ->route('transaksi.create')
-        //         ->with('toast_error', 'Stok Kurang');
-        // } else {
-        //     $jadwal->stok -= $transaksi->transaksi->banyak;
-        // }
-        // $jadwal->save();
-        // $transaksi->qr_code = $qr_code;
+       
         $transaksi->save();
         return redirect()->route('transaksi.index')
             ->with('success', 'Data berhasil dibuat!');
