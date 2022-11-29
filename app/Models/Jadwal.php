@@ -15,7 +15,7 @@ class Jadwal extends Model
     use HasFactory;
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class);
+        return $this->hasMany(Transaksi::class, 'id_jadwal');
     }
 
     public function movies()

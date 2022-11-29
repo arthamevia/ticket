@@ -41,16 +41,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Harga </label>
-                                <input type="number" class="form-control  @error('harga') is-invalid @enderror"
-                                    name="harga">
-                                @error('harga')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Stok </label>
                                 <input type="number" class="form-control  @error('stok') is-invalid @enderror"
                                     name="stok">

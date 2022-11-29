@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Movies;
 use App\Models\Jadwal;
 use App\Models\Transaksi;
+use App\Models\Mylist;
+use App\Models\Kursi;
 
 class Movies extends Model
 {
@@ -23,9 +25,18 @@ class Movies extends Model
         return $this->hasMany(Jadwal::class, 'id_movie');
     }
 
+    public function kursi()
+    {
+        return $this->hasMany(kursi::class, 'movie_id');
+    }
+
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class);
+        return $this->hasMany(Transaksi::class, 'id_movie');
+    }
+    public function mylist()
+    {
+        return $this->hasMany(Mylist::class, 'movie_id');
     }
 
     public function img_show()

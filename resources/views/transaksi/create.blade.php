@@ -12,6 +12,16 @@
                     <div class="card-body">
                         <form action="{{ route('transaksi.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <!-- <div class="mb-3">
+                                <label class="form-label">Kode </label>
+                                <input type="number" class="form-select  @error('kode_transaksi') is-invalid @enderror"
+                                    name="kode_transaksi">
+                                @error('kode_transaksi')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div> -->
                             <div class="mb-3">
                                 <label class="form-label">Costumer</label>
                                 <select name="id_costumer" class="form-select @error('id_costumer') is-invalid @enderror"
@@ -45,7 +55,7 @@
                                 <select name="id_jadwal" class="form-select @error('id_jadwal') is-invalid @enderror"
                                     id="">
                                     @foreach ($jadwal as $data)
-                                        <option value="{{ $data->id }}">{{ $data->id }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->tayang }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_jadwal')
@@ -78,7 +88,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-label">Total Harga </label>
                                 <input type="number" class="form-select  @error('total_harga') is-invalid @enderror"
                                     name="total_harga">
@@ -87,10 +97,10 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="mb-3">
                                 <label class="form-label">Tanggal Pesan </label>
-                                <input type="date" class="form-select  @error('tgl_psn') is-invalid @enderror"
+                                <input type="date" class="form-control  @error('tgl_psn') is-invalid @enderror"
                                     name="tgl_psn">
                                 @error('tgl_psn')
                                     <span class="invalid-feedback" role="alert">

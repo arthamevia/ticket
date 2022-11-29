@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Transaksi;
+use App\Models\Mylist;
 use App\Models\User;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
@@ -71,6 +72,10 @@ class User extends Authenticatable implements JWTSubject
     
     public function transaksi()
     {
-        return $this->hasMany(Transaksi::class);
+        return $this->hasMany(Transaksi::class, 'id_costumer');
+    }
+    public function mylist()
+    {
+        return $this->hasMany(Mylist::class, 'user_id');
     }
 }

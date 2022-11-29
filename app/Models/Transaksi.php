@@ -17,17 +17,17 @@ class Transaksi extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_costumer');
     }
 
     public function movies()
     {
-        return $this->belongsTo(Movies::class);
+        return $this->belongsTo(Movies::class, 'id_movie');
     }
 
     public function jadwal()
     {
-        return $this->belongsTo(Jadwal::class);
+        return $this->belongsTo(Jadwal::class, 'id_jadwal');
     }
 
     public function kursi()

@@ -20,8 +20,8 @@
                     <a href="/movies" class="nav-item nav-link"><i class="bi bi-film me-2"></i>Movie</a>
                     <!-- <a href="/studio" class="nav-item nav-link"><i class="bi bi-camera-reels-fill me-2"></i>Studio</a> -->
                     <a href="/kursi" class="nav-item nav-link"><i class="fa fa-chair me-2"></i>Seat</a>
-                    <!-- <a href="/status" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>klasifikasi</a> -->
                     <a href="/jadwal" class="nav-item nav-link"><i class="fa fa-calendar me-2"></i>Film Tayang</a>
+                    <a href="/mylist" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Mylist</a>
                     <a href="/transaksi" class="nav-item nav-link"><i class="bi bi-cash me-2"></i>Transaksi</a>
                     <a href="/user" class="nav-item nav-link"><i class="bi bi-person-fill me-2"></i>Customer</a>
                     

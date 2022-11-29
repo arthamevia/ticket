@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\StudioController;
+use App\Http\Controllers\MylistController;
 // use App\Http\Controllers\QRCodeController;
 
 /*
@@ -33,6 +34,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/login', 'Auth\LoginController@login')->middleware('admin');
 
+// Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 Route::resource('category', CategoryController::class);
 Route::resource('movies', MoviesController::class);
 Route::resource('kursi', KursiController::class);
@@ -42,9 +44,10 @@ Route::resource('user', UserController::class);
 Route::resource('status', StatusController::class);
 Route::resource('transaksi', TransaksiController::class);
 Route::resource('studio', StudioController::class);
-
+Route::resource('mylist', MylistController::class);
+// });
 // qr
-Route::get('/generate-qrcode', [App\Http\Controllers\QrCodeController::class, 'index']);
+// Route::get('/generate-qrcode', [App\Http\Controllers\QrCodeController::class, 'index']);
 
 
 // Route::get('/', 'QRCodeController@index');

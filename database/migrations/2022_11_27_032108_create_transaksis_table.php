@@ -25,7 +25,7 @@ class CreateTransaksisTable extends Migration
             $table->foreign('id_costumer')->references('id')->on('users')->onDelete('cascade');
             $table->UnsignedBigInteger('id_movie');
             $table->foreign('id_movie')->references('id')->on('movies')->onDelete('cascade');
-            $table->UnsignedBigInteger('id_jadwal');
+            $table->UnsignedBigInteger('id_jadwal'); //dinamik sesuai movie sama kursi juga dinamik
             $table->foreign('id_jadwal')->references('id')->on('jadwals')->onDelete('cascade');
             $table->UnsignedBigInteger('id_kursi');
             $table->foreign('id_kursi')->references('id')->on('kursis')->onDelete('cascade');

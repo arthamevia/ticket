@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\Auth\PasswordResetRequestController;
 use App\Http\Controllers\Api\Auth\ChangePasswordController;
+use App\Http\Controllers\Api\MylistController;
 
 
 /*
@@ -78,11 +79,19 @@ Route::put('Jadwal/{id}/edit', [JadwalController::class, 'update']);
 Route::delete('Jadwal/{id}'  , [JadwalController::class, 'destroy']);
 
 // Jadwal
-Route::get('Transaksi', [TransaksiController::class,'index']);
-Route::post('Transaksi/create', [TransaksiController::class, 'store']);
-Route::get('Transaksi/{id}', [TransaksiController::class, 'show']);
-Route::put('Transaksi/{id}/edit', [TransaksiController::class, 'update']);
-Route::delete('Transaksi/{id}'  , [TransaksiController::class, 'destroy']);
+
+Route::middleware(['auth:api'])->group(function () {
+    // Mylist
+    Route::get('Mylist', [MylistController::class, 'index']);
+    Route::post('Mylist/create', [MylistController::class, 'store']);
+    Route::delete('Mylist/{id}', [MylistController::class, 'destroy']);
+    
+    Route::get('Transaksi', [TransaksiController::class,'index']);
+    Route::post('Transaksi/create', [TransaksiController::class, 'store']);
+    Route::get('Transaksi/{id}', [TransaksiController::class, 'show']);
+    Route::put('Transaksi/{id}/edit', [TransaksiController::class, 'update']);
+    Route::delete('Transaksi/{id}'  , [TransaksiController::class, 'destroy']);
+});
 
 
 

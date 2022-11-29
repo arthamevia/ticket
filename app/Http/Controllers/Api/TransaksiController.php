@@ -41,23 +41,24 @@ class TransaksiController extends Controller
         } else {
             $kode = '001';
         }
-        $transaksi->kode_transaksi = 'GNQ-' . date('dmy') . $kode;
+        $transaksi->kode_transaksi = 'TMV-' . date('dmy') . $kode;
+
         $transaksi->id_costumer = $request->id_costumer;
         $transaksi->id_movie = $request->id_movie;
         $transaksi->id_jadwal = $request->id_jadwal;
         $transaksi->id_kursi = $request->id_kursi;
         $transaksi->banyak = $request->banyak;
-        $transaksi->total_harga = $request->total_harga;
+        $transaksi->total_harga = $transaksi->movies->price * $transaksi->banyak;
         $transaksi->tgl_psn = $request->tgl_psn;
-        $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
-        if ($jadwal->stok < $transaksi->transaksi->banyak) {
-            return redirect()
-                ->route('transaksi.create')
-                ->with('toast_error', 'Stok Kurang');
-        } else {
-            $jadwal->stok -= $transaksi->transaksi->banyak;
-        }
+        
+        $jadwal = Jadwal::findOrFail($transaksi->id_jadwal);
+        $jadwal->stok -= $transaksi->banyak;
         $jadwal->save();
+
+        $kursi = Kursi::findOrFail($transaksi->id_kursi);
+        $kursi->status = 'terisi';
+        $kursi->save();
+
         $transaksi->save();
 
         return response()->json([
@@ -79,21 +80,12 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::findOrFail($id);
 
-        if ($request->name != $transaksi->name) {
-            $rules['name'] = 'required|unique:transaksis';
+        if ($request->kode_transaksi != $transaksi->kode_transaksi) {
+            $rules['kode_transaksi'] = 'unique:transaksis';
         }
 
         $validasiData = $request->validate($rules);
-        $kode_transaksis = DB::table('transaksis')->select(DB::raw('MAX(RIGHT(kode_transaksi,3)) as kode'));
-        if ($kode_transaksis->count() > 0) {
-            foreach ($kode_transaksis->get() as $kode_transaksi) {
-                $x = ((int) $kode_transaksi->kode) + 1;
-                $kode = sprintf('%03s', $x);
-            }
-        } else {
-            $kode = '001';
-        }
-        $transaksi->kode_transaksi = 'GNQ-' . date('dmy') . $kode;
+        $transaksi->kode_transaksi = $request->kode_transaksi;
         $transaksi->id_costumer = $request->id_costumer;
         $transaksi->id_movie = $request->id_movie;
         $transaksi->id_jadwal = $request->id_jadwal;
@@ -101,15 +93,6 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
-        $jadwal = Jadwal::findOrFail($transaksi->transaksi->jadwal);
-        if ($jadwal->stok < $transaksis->transaksi->banyak) {
-            return redirect()
-                ->route('transaksi.create')
-                ->with('toast_error', 'Stok Kurang');
-        } else {
-            $jadwal->stok -= $transaksi->transaksi->banyak;
-        }
-        $jadwal->save();
         $transaksi->save();
 
         return response()->json([

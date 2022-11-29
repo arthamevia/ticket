@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Kursi;
 use App\Models\Tiket;
 use App\Models\Transaksi;
+use App\Models\Movies;
 
 use App\Models\Transaksi_Seat;
 
@@ -17,6 +18,10 @@ class Kursi extends Model
     public function transaksi()
     {
     	return $this->belongsToMany(Transaksi::class, 'transaksi_seat');
+    }
+    public function movies()
+    {
+    	return $this->belongsTo(Movies::class, 'movie_id');
     }
     public function jadwal()
     {
