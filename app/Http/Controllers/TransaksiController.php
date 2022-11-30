@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Movies;
 use App\Models\Jadwal;
 use App\Models\Kursi;
+use App\Models\Transaksi_Seat;
 use Illuminate\Support\Str;
 use DB;
 

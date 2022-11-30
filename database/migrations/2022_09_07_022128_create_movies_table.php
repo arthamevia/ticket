@@ -21,6 +21,7 @@ class CreateMoviesTable extends Migration
             $table->string('name');
             $table->text('desc');
             $table->string('img');
+            $table->string('vid');
             $table->integer('price');
             $table->enum('klasifikasi', ['Up Comming', 'Popular', 'Trending', 'Top Rated']);
             $table->UnsignedBigInteger('category_id');

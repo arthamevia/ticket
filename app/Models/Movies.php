@@ -54,4 +54,19 @@ class Movies extends Model
             return unlink(public_path('images/movies/' . $this->img));
         }
     }
+    public function vid_show()
+    {
+        if ($this->vid && file_exists(public_path('video/movies/' . $this->vid))) {
+            return asset('video/movies/' . $this->vid);
+        } else {
+            return asset('video/no_video.mp4');
+        }
+    }
+    
+    public function deleteVid()
+    {
+        if ($this->vid && file_exists(public_path('video/movies/' . $this->vid))) {
+            return unlink(public_path('video/movies/' . $this->vid));
+        }
+    }
 }

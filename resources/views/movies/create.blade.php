@@ -43,6 +43,16 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Trailer movies</label>
+                                <input type="file" class="form-select  @error('vid') is-invalid @enderror"
+                                    name="vid">
+                                @error('vid')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Price </label>
                                 <input type="number" class="form-control  @error('price') is-invalid @enderror"
                                     name="price">

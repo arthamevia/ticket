@@ -9,4 +9,5 @@ use App\Models\Transaksi_Seat;
 class Transaksi_Seat extends Model
 {
     use HasFactory;
+    protected $table = 'transaksi_seats';
 }

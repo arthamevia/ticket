@@ -15,8 +15,9 @@
                             <span class="d-none d-lg-inline-flex">Log Out</span>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            
-                        </form>
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">logout</button>
+                                    </form>
                     </div>
                 </div>
             </nav>

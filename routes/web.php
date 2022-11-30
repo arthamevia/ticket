@@ -13,6 +13,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\MylistController;
+
 // use App\Http\Controllers\QRCodeController;
 
 /*
@@ -32,7 +33,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/login', 'Auth\LoginController@login')->middleware('admin');
 
 // Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 Route::resource('category', CategoryController::class);

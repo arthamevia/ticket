@@ -10,7 +10,7 @@ class KursiController extends Controller
 {
     public function index (Request $request) 
     {
-        $kursi = Kursi::select(['id', 'studio_id', 'nama_kursi', 'status'])->get();
+        $kursi = Kursi::select(['id', 'nama_kursi', 'status'])->get();
         return response()->json($kursi);
     }
 
@@ -18,13 +18,13 @@ class KursiController extends Controller
     {
         //validasi
         $validated = $request->validate([
-            'studio_id' => 'required|unique:studios',
             'nama_kursi' => 'required',
             'status' => 'required',
         ]);
 
         $kursi = new Kursi();
-        $kursi->nama = $request->nama;
+        $kursi->nama_kursi = $request->nama_kursi;
+        $kursi->status = $request->status;
         $kursi->save();
 
         return response()->json([
@@ -46,13 +46,12 @@ class KursiController extends Controller
     {
         $kursi = Kursi::findOrFail($id);
 
-        if ($request->studio_id != $kursi->studio_id) {
-            $rules['studio_id'] = 'required|unique:studios';
+        if ($request->nama_kursi != $kursi->nama_kursi) {
+            $rules['nama_kursi'] = 'required|unique:kursis';
         }
 
         $validasiData = $request->validate($rules);
-        $kursi->studio_id = $request->studio_id;
-        $kursi->jumlah_sheet = $request->jumlah_sheet;
+        $kursi->nama_kursi = $request->nama_kursi;
         $kursi->status = $request->status;
         $kursi->save();
 

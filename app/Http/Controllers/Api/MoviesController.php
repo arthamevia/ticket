@@ -21,6 +21,7 @@ class MoviesController extends Controller
             'name' => 'required',
             'desc' => 'required',
             'img' => 'required|image|max:2048',
+            'vid' => 'required|video',
             'price' => 'required',
             'category_id' => 'required|unique:categories',
             'director' => 'required',
@@ -66,6 +67,13 @@ class MoviesController extends Controller
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
             $movies->img = $name;
+        }
+        if ($request->hasFile('vid')) {
+            $movies->deleteVid(); //menghapus foto sebelum di update melalui method deletevid di model
+            $video = $request->file('vid');
+            $name = rand(1000, 9999) . $video->getClientOriginalName();
+            $video->move('videos/movies/', $name);
+            $movies->vid = $name;
         }
         $movies->price = $request->price;
         $movies->category_id = $request->category_id;

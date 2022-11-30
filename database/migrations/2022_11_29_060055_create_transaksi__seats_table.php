@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Transaksi;
 use App\Models\Kursi;
+use App\Models\Transaksi_Seat;
 
 class CreateTransaksiSeatsTable extends Migration
 {

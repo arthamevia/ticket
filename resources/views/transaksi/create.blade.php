@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+
+    <script>
+        $(".select2").select2();
+    </script>
+@endsection
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -66,8 +75,8 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kursi</label>
-                                <select name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
-                                    id="">
+                                <select multiple name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
+                                    id="select2">
                                     @foreach ($kursi as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
                                     @endforeach
@@ -88,16 +97,6 @@
                                     </span>
                                 @enderror
                             </div>
-                            <!-- <div class="mb-3">
-                                <label class="form-label">Total Harga </label>
-                                <input type="number" class="form-select  @error('total_harga') is-invalid @enderror"
-                                    name="total_harga">
-                                @error('total_harga')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> -->
                             <div class="mb-3">
                                 <label class="form-label">Tanggal Pesan </label>
                                 <input type="date" class="form-control  @error('tgl_psn') is-invalid @enderror"
