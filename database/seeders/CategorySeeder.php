@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'title' => 'Horor',
+            'title' => 'Adventure',
         ]);
 
         Category::create([
@@ -24,7 +24,37 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::create([
-            'title' => 'Romantic',
+            'title' => 'Crime',
+        ]);
+        Category::create([
+            'title' => 'Fantasy',
+        ]);
+        Category::create([
+            'title' => 'Historical',
+        ]);
+        Category::create([
+            'title' => 'Horror',
+        ]);
+        Category::create([
+            'title' => 'Romance',
+        ]);
+        Category::create([
+            'title' => 'Sci-Fi',
+        ]);
+        Category::create([
+            'title' => 'Thriller',
+        ]);
+        Category::create([
+            'title' => 'Western',
+        ]);
+        Category::create([
+            'title' => 'Animation',
+        ]);
+        Category::create([
+            'title' => 'Drama',
+        ]);
+        Category::create([
+            'title' => 'Documentary',
         ]);
     }
 }

@@ -66,14 +66,14 @@ class MoviesController extends Controller
             $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
-            $movies->img = $name;
+            $movies->img = "images/movies/". $name;
         }
         if ($request->hasFile('vid')) {
             $movies->deleteVid(); //menghapus foto sebelum di update melalui method deletevid di model
             $video = $request->file('vid');
             $name = rand(1000, 9999) . $video->getClientOriginalName();
-            $video->move('videos/movies/', $name);
-            $movies->vid = $name;
+            $video->move('video/movies/', $name);
+            $movies->vid = "video/movies/".$name;
         }
         $movies->price = $request->price;
         $movies->klasifikasi = $request->klasifikasi;
@@ -126,7 +126,7 @@ class MoviesController extends Controller
             'name' => 'required',
             'desc' => 'required',
             'img' => 'required|image|max:2048',
-            'vid' => 'required|video',
+            // 'vid' => 'required|video',
             'price' => 'required',
             'klasifikasi' => 'required',
             'director' => 'required',
@@ -144,14 +144,14 @@ class MoviesController extends Controller
             $image = $request->file('img');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
             $image->move('images/movies/', $name);
-            $movies->img = $name;
+            $movies->img = "images/movies/".$name;
         }
         if ($request->hasFile('vid')) {
             $movies->deleteVid(); //menghapus foto sebelum di update melalui method deletevid di model
             $video = $request->file('vid');
             $name = rand(1000, 9999) . $video->getClientOriginalName();
-            $video->move('videos/movies/', $name);
-            $movies->vid = $name;
+            $video->move('video/movies/', $name);
+            $movies->vid = "video/movies/" . $name;
         }
         $movies->price = $request->price;
         $movies->klasifikasi = $request->klasifikasi;
@@ -175,6 +175,7 @@ class MoviesController extends Controller
     {
         $movies = Movies::findOrFail($id);
         $movies->deleteImg();
+        $movies->deleteVid();
         $movies->delete();
         return redirect()->route('movies.index')
             ->with('success', 'Data berhasil dibuat!');

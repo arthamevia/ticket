@@ -34,15 +34,33 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Foto movies</label>
-                                <input type="file" class="form-select  @error('img') is-invalid @enderror"
-                                    name="img" value="{{ $movies->img }}">
-                                @error('img')
+                                <label class="form-label">gambar produk</label>
+                            <p>
+                                @if (isset($movies) && $movies->img)
+                                    <img src="{{ asset($movies->img) }}"
+                                        class="img-rounded img-responsive"
+                                        style="width:150px; height:150px; border-radius:10px border-radius:10px"
+                                        alt="">
+                                @endif
+                            </p>
+                            <input type="file" class="form-control mb-2  @error('img') is-invalid @enderror"
+                                name="img">
+                            @error('img')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                                </div>
+                                <div class="mb-3">
+                                <label class="form-label">Trailer movies</label>
+                                <input type="file" class="form-select  @error('vid') is-invalid @enderror"
+                                    name="vid">
+                                @error('vid')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
+                                @enderror
+                            </div>
                                 <div class="mb-3">
                                     <label class="form-label">Price </label>
                                     <input type="number" class="form-select  @error('price') is-invalid @enderror"

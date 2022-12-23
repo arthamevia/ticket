@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive text-nowrap">
                             <table class="table align-middle" id="dataTable">
                                 <thead>
                                     <tr>
@@ -75,7 +75,7 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                        <center><img src="{{ $data->img_show() }}" style="width: 300px; height:300px;"alt=""></center>
+                                                        <center><img src="{{ asset( $data->img ) }}" style="width: 300px; height:300px;"alt=""></center>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
@@ -113,15 +113,15 @@
                                             <td>{{ $data->release }}</td>
                                             <td>{{ $data->duration }}</td>
                                             <td>{{ $data->rate }}</td>
-                                            <td data-label="" width="300" style="overflow: hidden;">
-                                                <form class="row"style="width: 135px;" action="{{ route('movies.destroy', $data->id) }}" method="post">
+                                            <td>
+                                            <form action="{{ route('movies.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="{{ route('movies.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
-                                                    </a> |
-                                                    <button  type="submit" class="btn btn-sm btn-outline-danger "
+                                                    </a>
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin Untuk Delete?')">Delete
                                                     </button>
                                                 </form>

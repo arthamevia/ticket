@@ -2,13 +2,13 @@
 
 @section('content')
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 
     <script>
         $(".select2").select2();
-    </script>
+    </script> -->
 @endsection
     <div class="container">
         <div class="row justify-content-center">
@@ -75,7 +75,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kursi</label>
-                                <select multiple name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
+                                <select  name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
                                     id="select2">
                                     @foreach ($kursi as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>

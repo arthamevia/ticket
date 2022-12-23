@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive text-nowrap">
                             <table class="table align-middle" id="dataTable">
                                 <thead>
                                     <tr>
@@ -44,8 +44,8 @@
                                             <td>{{ $data->banyak }}</td>
                                             <td>Rp {{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>{{ $data->tgl_psn }}</td>
-                                            <td data-label="" width="300" style="overflow: hidden;">
-                                                <form class="row"style="width: 135px;" action="{{ route('transaksi.destroy', $data->id) }}" method="post">
+                                            <td>
+                                                <form action="{{ route('transaksi.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="{{ route('transaksi.edit', $data->id) }}"
