@@ -43,23 +43,15 @@ class JadwalController extends Controller
     {
         $validated = $request->validate([
             'id_movie' => 'required',
-            'id_kursi' => 'required',
-            'harga' => 'required',
-            'stok' => 'required',
             'tgl' => 'required',
             'tayang' => 'required',
-            'selesai' => 'required',
 
         ]);
 
         $jadwal = new Jadwal();
         $jadwal->id_movie = $request->id_movie;
-        $jadwal->id_kursi = $request->id_kursi;
-        $jadwal->harga = $request->harga;
-        $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
-        $jadwal->selesai = $request->selesai;
         $jadwal->save();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -103,22 +95,14 @@ class JadwalController extends Controller
     {
         $validated = $request->validate([
             'id_movie' => 'required|unique:movies',
-            'id_kursi' => 'required|unique:kursis',
-            'harga' => 'required',
-            'stok' => 'required',
             'tgl' => 'required',
             'tayang' => 'required',
-            'selesai' => 'required',
         ]);
 
         $jadwal = Jadwal::findOrFail($id);
         $jadwal->id_movie = $request->id_movie;
-        $jadwal->id_kursi = $request->id_kursi;
-        $jadwal->harga = $request->harga;
-        $jadwal->stok = $request->stok;
         $jadwal->tgl = $request->tgl;
         $jadwal->tayang = $request->tayang;
-        $jadwal->selesai = $request->selesai;
         $jadwal->save();
         return redirect()->route('jadwal.index')
             ->with('success', 'Data berhasil dibuat!');

@@ -17,7 +17,7 @@ class Kursi extends Model
 
     public function transaksi()
     {
-    	return $this->belongsToMany(Transaksi::class, 'transaksi_seat');
+    	return $this->hasMany(Transaksi::class, 'id_kursi');
     }
     public function movies()
     {

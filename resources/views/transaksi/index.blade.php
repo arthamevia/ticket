@@ -40,7 +40,7 @@
                                             <td>{{ $data->user->name }}</td>
                                             <td>{{ $data->movies->name }}</td>
                                             <td>{{ $data->jadwal->tayang }}</td>
-                                            <td>{{ $data->id_kursi }}</td>
+                                            <td>{{ $data->kursi->nama_kursi }}</td>
                                             <td>{{ $data->banyak }}</td>
                                             <td>Rp {{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>{{ $data->tgl_psn }}</td>

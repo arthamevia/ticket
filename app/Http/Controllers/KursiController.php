@@ -41,7 +41,6 @@ class KursiController extends Controller
     {
         $validated = $request->validate([
             'nama_kursi' => 'required',
-            'status' => 'required',
         ]);
 
         $kursi = new Kursi();
@@ -87,7 +86,6 @@ class KursiController extends Controller
     {
         $validated = $request->validate([
             'nama_kursi' => 'required',
-            'status' => 'required',
         ]);
 
         $kursi = Kursi::findOrFail($id);

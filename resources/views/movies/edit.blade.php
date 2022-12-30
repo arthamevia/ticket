@@ -34,7 +34,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">gambar produk</label>
+                                <label class="form-label">Image Film</label>
                             <p>
                                 @if (isset($movies) && $movies->img)
                                     <img src="{{ asset($movies->img) }}"

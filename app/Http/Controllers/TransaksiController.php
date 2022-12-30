@@ -22,7 +22,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $transaksi = Transaksi::all();
+        $transaksi = Transaksi::with('Movies','user','jadwal','kursi')->get();
         return view('transaksi.index', compact('transaksi'));
     }
     /**
@@ -75,14 +75,21 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $transaksi->movies->price * $transaksi->banyak;
         $transaksi->tgl_psn = $request->tgl_psn;
-        
-        $jadwal = Jadwal::findOrFail($transaksi->id_jadwal);
-        $jadwal->stok -= $transaksi->banyak;
-        $jadwal->save();
 
-        $kursi = Kursi::findOrFail($transaksi->id_kursi);
-        $kursi->status = 'terisi';
-        $kursi->save();
+
+        if ($kursi = Transaksi::where('id_kursi',$transaksi->id_kursi)->where('id_movie',$transaksi->id_movie)->where('id_jadwal',$transaksi->id_jadwal)->first()) {
+                return redirect()
+                    ->route('transaksi.create')
+                    ->with('error', 'kursi telah terisi');
+            }
+
+        // $jadwal = Jadwal::findOrFail($transaksi->id_jadwal);
+        // $jadwal->stok -= $transaksi->banyak;
+        // $jadwal->save();
+
+        // $kursi = Kursi::findOrFail($transaksi->id_kursi);
+        // $kursi->status = 'terisi';
+        // $kursi->save();
 
         $transaksi->save();
         return redirect()->route('transaksi.index')

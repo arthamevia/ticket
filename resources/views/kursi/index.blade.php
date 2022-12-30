@@ -21,7 +21,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Seat Name</th>
-                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -32,14 +31,6 @@
                                             <td>{{ $no++ }}</td>
                                             
                                             <td>{{ $data->nama_kursi }}</td>
-                                            <td>
-                                            @if ($data->status == 'terisi')
-                                                <div class="badge rounded-pill bg-info w-100">{{ $data->status }}
-                                                </div>
-                                            @elseif ($data->status == 'kosong')
-                                                <div class="badge rounded-pill bg-secondary w-100">{{ $data->status }}</div>
-                                            @endif
-                                            </td>
                                             <td>
                                                 <form action="{{ route('kursi.destroy', $data->id) }}" method="post">
                                                     @csrf

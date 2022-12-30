@@ -21,11 +21,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Movies</th>
-                                        <th>Kursi</th>
-                                        <th>Stok</th>
                                         <th>Tanggal Tayang</th>
                                         <th>Jam Tayang</th>
-                                        <th>Jam Selesai</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -35,11 +32,8 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->movies->name }}</td>
-                                            <td>{{ $data->kursi->nama_kursi }}</td>
-                                            <td>{{ $data->stok }}</td>
                                             <td>{{ $data->tgl }}</td>
                                             <td>{{ $data->tayang }}</td>
-                                            <td>{{ $data->selesai }}</td>
                                             <td>
                                                 <form action="{{ route('jadwal.destroy', $data->id) }}" method="post">
                                                     @csrf

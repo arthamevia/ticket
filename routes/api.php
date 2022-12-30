@@ -51,10 +51,16 @@ Route::put('Category/{id}/edit', [CategoryController::class, 'update']);
 Route::delete('Category/{id}', [CategoryController::class, 'destroy']);
 // movie
 Route::get('Movies', [MoviesController::class,'index']);
-Route::post('Movies/create', [MoviesController::class, 'store']);
-Route::get('Movies/{id}', [MoviesController::class, 'show']);
-Route::put('Movies/{id}/edit', [MoviesController::class, 'update']);
-Route::delete('Movies/{id}', [MoviesController::class, 'destroy']);
+Route::get('Movies/trending', [MoviesController::class,'trending']);
+Route::get('Movies/popular', [MoviesController::class,'popular']);
+Route::get('Movies/toprated', [MoviesController::class,'toprated']);
+Route::get('Movies/upcomming', [MoviesController::class,'upcomming']);
+Route::get('Movies/{id}', [MoviesController::class, 'detail']);
+
+// Route::post('Movies/create', [MoviesController::class, 'store']);
+// Route::get('Movies/{id}', [MoviesController::class, 'show']);
+// Route::put('Movies/{id}/edit', [MoviesController::class, 'update']);
+// Route::delete('Movies/{id}', [MoviesController::class, 'destroy']);
 
 
 // Studio

@@ -9,14 +9,13 @@ use App\Models\User;
 use App\Models\Movies;
 use App\Models\Jadwal;
 use App\Models\Kursi;
-use App\Models\Transaksi_Seat;
 use DB;
 
 class TransaksiController extends Controller
 {
     public function index (Request $request) 
     {
-         $transaksi = Transaksi::with(['movies', 'jadwal', 'kursi', 'transaksi_seat'])->get();
+         $transaksi = Transaksi::with('Movies','user','jadwal','kursi')->get();
         return response()->json($transaksi);
     }
 
@@ -53,14 +52,6 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $transaksi->movies->price * $transaksi->banyak;
         $transaksi->tgl_psn = $request->tgl_psn;
-        
-        $jadwal = Jadwal::findOrFail($transaksi->id_jadwal);
-        $jadwal->stok -= $transaksi->banyak;
-        $jadwal->save();
-
-        $kursi = Kursi::findOrFail($transaksi->id_kursi);
-        $kursi->status = 'terisi';
-        $kursi->save();
 
         $transaksi->save();
 
@@ -96,14 +87,6 @@ class TransaksiController extends Controller
         $transaksi->banyak = $request->banyak;
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
-
-        $jadwal = Jadwal::findOrFail($transaksi->id_jadwal);
-        $jadwal->stok -= $transaksi->banyak;
-        $jadwal->save();
-
-        $kursi = Kursi::findOrFail($transaksi->id_kursi);
-        $kursi->status = 'terisi';
-        $kursi->save();
 
         $transaksi->save();
 

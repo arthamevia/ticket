@@ -17,43 +17,28 @@ class JadwalSeeder extends Seeder
     {
         Jadwal::create([
             'id_movie' => 1,
-            'id_kursi' => 1,
-            'stok' => 30,
             'tgl' => '2022-11-29',
             'tayang' => '12:00:00',
-            'selesai' => '13:30:00',
         ]);
         Jadwal::create([
-            'id_movie' => 1,
-            'id_kursi' => 2,
-            'stok' => 30,
+            'id_movie' => 2,
             'tgl' => '2022-11-29',
-            'tayang' => '12:00:00',
-            'selesai' => '13:30:00',
+            'tayang' => '14:30:00',
         ]);
         Jadwal::create([
-            'id_movie' => 1,
-            'id_kursi' => 3,
-            'stok' => 30,
+            'id_movie' => 3,
             'tgl' => '2022-11-29',
-            'tayang' => '12:00:00',
-            'selesai' => '13:30:00',
+            'tayang' => '15:30:00',
         ]);
         Jadwal::create([
-            'id_movie' => 1,
-            'id_kursi' => 4,
-            'stok' => 30,
+            'id_movie' => 4,
             'tgl' => '2022-11-29',
-            'tayang' => '12:00:00',
-            'selesai' => '13:30:00',
+            'tayang' => '16:30:00',
         ]);
         Jadwal::create([
-            'id_movie' => 1,
-            'id_kursi' => 5,
-            'stok' => 30,
+            'id_movie' => 5,
             'tgl' => '2022-11-29',
-            'tayang' => '12:00:00',
-            'selesai' => '13:30:00',
+            'tayang' => '17:30:00',
         ]);
     }
 }

@@ -59,6 +59,50 @@ class KursiSeeder extends Seeder
         Kursi::create([
             'nama_kursi' => 'C05',
         ]);
-
+        Kursi::create([
+            'nama_kursi' => 'D01',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'D02',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'D03',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'D04',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'D05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'E01',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'E02',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'E03',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'E04',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'E05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'F05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'F05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'F05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'F05',
+        ]);
+        Kursi::create([
+            'nama_kursi' => 'F05',
+        ]);
     }
 }

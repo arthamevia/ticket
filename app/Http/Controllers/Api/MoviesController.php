@@ -14,6 +14,33 @@ class MoviesController extends Controller
         return response()->json($movies);
     }
 
+    // nge filter per klasifikasi di filmya
+    public function trending(Request $request) 
+    {
+        $movies = Movies::where('klasifikasi','Trending')->with('category')->get();
+        return response()->json($movies);
+    }
+    public function popular(Request $request) 
+    {
+        $movies = Movies::where('klasifikasi','Popular')->with('category')->get();
+        return response()->json($movies);
+    }
+    public function toprated(Request $request) 
+    {
+        $movies = Movies::where('klasifikasi','Top Rated')->with('category')->get();
+        return response()->json($movies);
+    }
+    public function upcomming(Request $request) 
+    {
+        $movies = Movies::where('klasifikasi','Up Comming')->with('category')->get();
+        return response()->json($movies);
+    }
+    public function detail($id) 
+    {
+        $movies = Movies::where('id', $id)->with('category')->get();
+        return response()->json($movies);
+    }
+
     public function store(Request $request)
     {
         //validasi

@@ -20,12 +20,8 @@ class CreateJadwalsTable extends Migration
             $table->id();
             $table->UnsignedBigInteger('id_movie');
             $table->foreign('id_movie')->references('id')->on('movies')->onDelete('cascade');
-            $table->UnsignedBigInteger('id_kursi'); //komen
-            $table->foreign('id_kursi')->references('id')->on('kursis')->onDelete('cascade');
-            $table->integer('stok');
             $table->date('tgl');
             $table->time('tayang');
-            $table->time('selesai'); 
             $table->timestamps();
         });
     }

@@ -27,30 +27,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Kursi</label>
-                                <select name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
-                                    id="">
-                                    @foreach ($kursi as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_kursi')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Stok </label>
-                                <input type="number" class="form-control  @error('stok') is-invalid @enderror"
-                                    name="stok">
-                                @error('stok')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Tanggal Tayang </label>
                                 <input type="date" class="form-control  @error('tgl') is-invalid @enderror"
                                     name="tgl">
@@ -65,16 +41,6 @@
                                 <input type="time" class="form-control  @error('tayang') is-invalid @enderror"
                                     name="tayang">
                                 @error('tayang')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Jam Selesai </label>
-                                <input type="time" class="form-control  @error('selesai') is-invalid @enderror"
-                                    name="selesai">
-                                @error('selesai')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

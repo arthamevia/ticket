@@ -17,10 +17,7 @@ class CreateKursisTable extends Migration
     {
         Schema::create('kursis', function (Blueprint $table) {
             $table->id();
-            // $table->UnsignedBigInteger('movie_id');
-            // $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
             $table->string('nama_kursi');
-            $table->enum('status', ['terisi', 'kosong'])->default('kosong');
             $table->timestamps();
         });
     }

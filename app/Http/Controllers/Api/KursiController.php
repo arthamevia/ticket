@@ -10,7 +10,7 @@ class KursiController extends Controller
 {
     public function index (Request $request) 
     {
-        $kursi = Kursi::select(['id', 'nama_kursi', 'status'])->get();
+        $kursi = Kursi::select(['id', 'nama_kursi'])->get();
         return response()->json($kursi);
     }
 
@@ -19,12 +19,10 @@ class KursiController extends Controller
         //validasi
         $validated = $request->validate([
             'nama_kursi' => 'required',
-            'status' => 'required',
         ]);
 
         $kursi = new Kursi();
         $kursi->nama_kursi = $request->nama_kursi;
-        $kursi->status = $request->status;
         $kursi->save();
 
         return response()->json([
@@ -52,7 +50,6 @@ class KursiController extends Controller
 
         $validasiData = $request->validate($rules);
         $kursi->nama_kursi = $request->nama_kursi;
-        $kursi->status = $request->status;
         $kursi->save();
 
         return response()->json([

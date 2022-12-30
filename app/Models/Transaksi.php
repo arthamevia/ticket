@@ -32,6 +32,6 @@ class Transaksi extends Model
 
     public function kursi()
     {
-    	return $this->belongsToMany(Kursi::class, 'transaksi_seat');
+    	return $this->belongsTo(Kursi::class, 'id_kursi');
     }
 }
