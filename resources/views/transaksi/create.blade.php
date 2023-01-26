@@ -75,8 +75,8 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kursi</label>
-                                <select  name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
-                                    id="select2">
+                                <select  name="id_kursi[]" class="form-select  multiple @error('id_kursi') is-invalid @enderror"
+                                    id="" multiple="multiple">
                                     @foreach ($kursi as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
                                     @endforeach

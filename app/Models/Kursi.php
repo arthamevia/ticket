@@ -8,6 +8,7 @@ use App\Models\Kursi;
 use App\Models\Tiket;
 use App\Models\Transaksi;
 use App\Models\Movies;
+use App\Models\Studio;
 
 use App\Models\Transaksi_Seat;
 
@@ -18,6 +19,10 @@ class Kursi extends Model
     public function transaksi()
     {
     	return $this->hasMany(Transaksi::class, 'id_kursi');
+    }
+    public function studio()
+    {
+    	return $this->hasMany(Studio::class, 'id_kursi');
     }
     public function movies()
     {

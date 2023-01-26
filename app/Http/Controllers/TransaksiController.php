@@ -162,6 +162,7 @@ class TransaksiController extends Controller
         $transaksi->total_harga = $request->total_harga;
         $transaksi->tgl_psn = $request->tgl_psn;
         $transaksi->save();
+        $transaksi->ArticleTag()->sync($request->tags);
         return redirect()->route('transaksi.index')
             ->with('success', 'Data berhasil dibuat!');
     }

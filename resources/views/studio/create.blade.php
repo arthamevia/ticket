@@ -10,26 +10,29 @@
                        Buat Data Studio
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('studio.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('studio.store') }}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Nama Studio</label>
-                                    <select name="nama" class="form-select @error('nama') is-invalid @enderror" >
+                                    <select name="name_studio" class="form-select @error('name_studio') is-invalid @enderror" >
                                         <option value="Studio 1">Studio 1</option>
                                         <option value="Studio 2">Studio 2</option>
-                                        <option value="Studio 3">Studio 3</option>
                                     </select>
-                                    @error('nama')
+                                    @error('name_studio')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Jumlah Seat</label>
-                                <input type="number" class="form-control  @error('jumlah_sheet') is-invalid @enderror"
-                                    name="jumlah_sheet">
-                                @error('jumlah_sheet')
+                                <label class="form-label">Kursi</label>
+                                <select  name="id_kursi" class="form-select @error('id_kursi') is-invalid @enderror"
+                                    id="select2">
+                                    @foreach ($kursi as $data)
+                                        <option value="{{ $data->id }}">{{ $data->nama_kursi }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_kursi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

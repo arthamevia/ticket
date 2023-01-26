@@ -19,8 +19,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Jumlah Seat</th>
+                                        <th>Nama Studio</th>
+                                        <th>Kursi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -29,8 +29,8 @@
                                     @foreach ($studio as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nama }}</td>
-                                            <td>{{ $data->jumlah_sheet }}</td>
+                                            <td>{{ $data->name_studio }}</td>
+                                            <td>{{ $data->kursi->nama_kursi }}</td>
                                             <td>
                                                 <form action="{{ route('studio.destroy', $data->id) }}" method="post">
                                                     @csrf

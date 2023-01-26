@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Studio;
+use App\Models\Kursi;
 use Illuminate\Http\Request;
 
 class StudioController extends Controller
@@ -14,7 +15,8 @@ class StudioController extends Controller
      */
     public function index()
     {
-        //
+        $studio = Studio::with('kursi')->get();
+        return view('studio.index', ['studio' => $studio]);
     }
 
     /**
@@ -24,29 +26,29 @@ class StudioController extends Controller
      */
     public function create()
     {
-        //
+        $kursi = Kursi::all();
+        return view('studio.create', compact('kursi'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name_studio' => 'required',
+            'id_kursi' => 'required',
+        ]);
+
+        $studio = new Studio();
+        $studio->name_studio = $request->name_studio;
+        $studio->id_kursi = $request->id_kursi;
+        $studio->save();
+        return redirect()->route('studio.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Studio  $studio
-     * @return \Illuminate\Http\Response
-     */
     public function show(Studio $studio)
     {
-        //
+        $studio = Studio::findOrFail($id);
+        return view('studio.show', compact('studio'));
     }
 
     /**
@@ -57,7 +59,10 @@ class StudioController extends Controller
      */
     public function edit(Studio $studio)
     {
-        //
+        $studio = Studio::findOrFail($id);
+        $kursi = Kursi::all();
+
+        return view('studio.edit', compact('studio', 'kursi'));
     }
 
     /**
@@ -69,7 +74,15 @@ class StudioController extends Controller
      */
     public function update(Request $request, Studio $studio)
     {
-        //
+        $validated = $request->validate([
+            'name_studio' => 'required',
+        ]);
+
+        $studio = Studio::findOrFail($id);
+        $studio->name_studio = $request->name_studio;
+        $studio->save();
+        return redirect()->route('studio.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
     /**
@@ -80,6 +93,9 @@ class StudioController extends Controller
      */
     public function destroy(Studio $studio)
     {
-        //
+        $studio = Studio::findOrFail($id);
+        $studio->delete();
+        return redirect()->route('studio.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 }
