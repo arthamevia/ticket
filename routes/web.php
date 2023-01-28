@@ -11,6 +11,8 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MylistController;
+use App\Http\Controllers\tampilan\category2Controller;
+
 // use App\Http\Controllers\tmplnuserController;
 
 // use App\Http\Controllers\QRCodeController;
@@ -28,6 +30,10 @@ use App\Http\Controllers\MylistController;
 Route::get('/', function () {
     return view('awal');
 });
+Route::get('/category2', function () {
+    return view('category2');
+});
+
 
 Auth::routes(['register' => false]);
 
