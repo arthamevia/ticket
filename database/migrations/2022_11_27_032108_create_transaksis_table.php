@@ -3,11 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Transaksi;
-use App\Models\User;
-use App\Models\Movies;
-use App\Models\Jadwal;
-use App\Models\Kursi;
 
 class CreateTransaksisTable extends Migration
 {
@@ -27,7 +22,7 @@ class CreateTransaksisTable extends Migration
             $table->foreign('id_movie')->references('id')->on('movies')->onDelete('cascade');
             $table->UnsignedBigInteger('id_jadwal'); //dinamik sesuai movie sama kursi juga dinamik
             $table->foreign('id_jadwal')->references('id')->on('jadwals')->onDelete('cascade');
-            $table->UnsignedBigInteger('id_kursi');
+            $table->UnsignedBigInteger('id_kursi'); //dinamik sesuai movie sama kursi juga dinamik
             $table->foreign('id_kursi')->references('id')->on('kursis')->onDelete('cascade');
             $table->integer('banyak');
             $table->integer('total_harga');

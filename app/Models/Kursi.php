@@ -16,10 +16,10 @@ class Kursi extends Model
 {
     use HasFactory;
 
-    public function transaksi()
-    {
-    	return $this->hasMany(Transaksi::class, 'id_kursi');
-    }
+    // public function transaksi()
+    // {
+    // 	return $this->hasMany(Transaksi::class, 'id_kursi');
+    // }
     public function studio()
     {
     	return $this->hasMany(Studio::class, 'id_kursi');
@@ -31,5 +31,15 @@ class Kursi extends Model
     public function jadwal()
     {
     	return $this->hasMany(Jadwal::class, 'id_kursi');
+    }
+
+    public function Transaksi()
+    {
+        return $this->belongsToMany(
+            'App\Models\Transaksi',
+            'transaksi_seat',
+            'kursi_id',
+            'transaksi_id',
+        );
     }
 }

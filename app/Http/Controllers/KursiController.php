@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Kursi;
-use App\Models\Transaksi_Seat;
-
+use Illuminate\Http\Request;
 
 class KursiController extends Controller
 {
@@ -47,7 +45,9 @@ class KursiController extends Controller
         $kursi->nama_kursi = $request->nama_kursi;
         $kursi->status = $request->status;
         $kursi->save();
+        // $Kursi->Transaksi_Seat()->attach($request->nama_kursi);
         return redirect()->route('kursi.index')
+
             ->with('success', 'Data berhasil dibuat!');
     }
 
