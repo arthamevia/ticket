@@ -42,7 +42,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <a href="/" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="{{asset('awal/img/logo.png')}}" alt=""> -->
         <i class="bi bi-camera"></i>
@@ -51,8 +51,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown"><a href="category2.html"><span>Category2</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="/">Home</a></li>
+          <li class="dropdown"><a href="category2"><span>Category2</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="gallery.html">Horor</a></li>
               <li><a href="gallery.html">Romantice</a></li>
@@ -60,7 +60,7 @@
               <li><a href="gallery.html">Action</a></li>
               </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="klasifikasi"><span>Klasifikasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="gallery.html">Up Comming</a></li>
               <li><a href="gallery.html">Popular</a></li>
@@ -76,7 +76,7 @@
             </ul>
           </li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking">Booking</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -118,7 +118,7 @@
             <img src="{{asset('awal/img/movies/2garis.jpg')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 content">
-            <h1>Dua Garis Merah </h1> 
+            <h1>Dua Garis Biru </h1> 
             <p class="fst-italic py-3">
               Bima dan Bara adalah sepasang kekasih yang masih duduk dibangku SMA. Pada usia 7 tahun, mereka nekad bersenggama diluar nikah. 
               Dara pun hamil. Keduanya kemudian dihadapkan pada kehidupan yang tak terbayangkan bagi anak seusia mereka, kehidupan sebagai porang tua. 
@@ -159,12 +159,13 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Spider-Man (bahasa Indonesia: Manusia Laba-laba), adalah pahlawan super fiktif dari Marvel Comics yang diciptakan oleh penulis Stan Lee dan artis Steve Ditko. Ia pertama muncul dalam Amazing Fantasy #15 (Agustus 1962). 
+                  Ia telah menjadi salah satu pahlawan super yang paling terkenal di dunia.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('awal/img/movies/testimonials-1.jpg')}}" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <img src="{{asset('awal/img/movies/spiderman.jpg')}}" class="testimonial-img" alt="">
+                  <h3>Spiderman</h3>
+                  <h4>Sam Raimi</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -175,12 +176,13 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  Drama epik karya sutradara James Cameron itu mengisahkan kapal mewah yang menabrak gunung es dan 
+                  tenggelam dalam pelayaran perdananya pada 1912.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('awal/img/movies/testimonials-2.jpg')}}" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <img src="{{asset('awal/img/movies/titanic.jpg')}}" class="testimonial-img" alt="">
+                  <h3>Titanic</h3>
+                  <h4>James Cameron</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -194,7 +196,7 @@
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('awal/img/movies/testimonials-3.jpg')}}" class="testimonial-img" alt="">
+                  <img src="{{asset('awal/img/movies/mariposa.jpg')}}" class="testimonial-img" alt="">
                   <h3>Jena Karlis</h3>
                   <h4>Store Owner</h4>
                 </div>
@@ -210,7 +212,7 @@
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('awal/img/movies/testimonials-4.jpg')}}" class="testimonial-img" alt="">
+                  <img src="{{asset('awal/img/movies/hocus.jpg')}}" class="testimonial-img" alt="">
                   <h3>Matt Brandon</h3>
                   <h4>Freelancer</h4>
                 </div>
@@ -226,7 +228,7 @@
                   Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
                 </p>
                 <div class="profile mt-auto">
-                  <img src="{{asset('awal/img/movies/testimonials-5.jpg')}}" class="testimonial-img" alt="">
+                  <img src="{{asset('awal/img/movies/cinderella.jpg')}}" class="testimonial-img" alt="">
                   <h3>John Larson</h3>
                   <h4>Entrepreneur</h4>
                 </div>

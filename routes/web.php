@@ -10,6 +10,7 @@ use App\Http\Controllers\StudioController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\AwalController;
 use App\Http\Controllers\MylistController;
 use App\Http\Controllers\tampilan\category2Controller;
 
@@ -27,11 +28,15 @@ use App\Http\Controllers\tampilan\category2Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('awal');
-});
+Route::get('/', [App\Http\Controllers\AwalController::class, 'index'])->name('/');
 Route::get('/category2', function () {
     return view('category2');
+});
+Route::get('/klasifikasi', function () {
+    return view('klasifikasi');
+});
+Route::get('/booking', function () {
+    return view('booking');
 });
 
 
