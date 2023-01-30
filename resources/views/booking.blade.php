@@ -118,7 +118,7 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Bandung</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -128,7 +128,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>go-movies@gmail.com</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -138,7 +138,7 @@
               <i class="bi bi-phone flex-shrink-0"></i>
               <div>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55</p>
+                <p>089671303931</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -150,15 +150,28 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="kode" class="form-control" id="kode" placeholder="Your Kode Transaksi" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="text" class="form-control" name="costumer" id="costumer" placeholder="Your Name Costumer" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul film" required>
               </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="jadwal" id="jadwal" placeholder="Jadwal film" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="kursi" id="kursi" placeholder="Nomor Kursi" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="number" class="form-control" name="banyak" id="banyak" placeholder="Banyak Pesan" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="number" class="form-control" name="total" id="total" placeholder="Total Harga" required>
+              </div>
+              
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
